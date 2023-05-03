@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	--white: #fff;
+	--black: #000;
+	--primary: #ABA18C;
+	--secondary: #424752;
+}
+
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+body {
+	position: relative;
+	background: #fff;
+	overflow-x: hidden;
+	height: 100%;
+	font-family: 'Playfair Display', serif;
+}
+
+@media (min-width: 1700px) {
+	.container {
+		max-width: 1380px;
+	}
+}
+
+/* How to add New font */
+/* @font-face {
+	font-family: "Font Name";
+	src: url("../fonts/fontpath.ttf");
+  } */
+
+
+section {
+	position: relative;
+	padding: 6rem 0;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 2;
+	color: #424752;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #000;
+}
+
+.img-auto {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+a,
+button {
+	text-decoration: none !important;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+a:hover,
+button:hover {
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+figure {
+	margin: 0;
+}
+
+/* loader */
+.preLoader {
+	width: 100%;
+	height: 100%;
+	z-index: 1111;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.preLoader.black {
+	background-color: var(--primary);
+	z-index: 11113;
+}
+
+.preLoader.white {
+	z-index: 11112;
+	background-color: var(--theme-color);
+}
+
+/* loader */
+
+/* btn css */
+
+.themeBtn {
+	background: var(--theme-color);
+	font-size: 1.125rem;
+	color: var(--white);
+	text-transform: uppercase;
+	font-weight: 500;
+	display: inline-block;
+	padding: 1.04em 1.96em;
+	border-radius: 7px;
+	line-height: normal;
+}
+
+.themeBtn.borderBtn {
+	background: transparent;
+	border: 1px solid #fff;
+	padding: 1.04em 2em;
+}
+
+/* btn css */
+
+/* mouse animation css  */
+
+/* .bounce-element {
+	animation: bounce 0.9s infinite alternate;
+	-webkit-animation: bounce 0.9s infinite alternate;
+}
+@keyframes bounce {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-15px);
+	}
+}
+@-webkit-keyframes bounce {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-15px);
+	}
+}
+.mouse {
+	position: absolute;
+	bottom: 1rem;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 11;
+	text-align: center;
+} */
+
+/* mouse animation css  */
+
+/* navigation css */
+
+/* header {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 111;
+	top: 0;
+	width: 100%;
+	padding: 1rem 0;
+	transition: 0.3s ease-in-out;
+  }
+
+.navbar-nav {
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.navbar-nav .nav-item .nav-link {
+	font-size: 1rem;
+	color: var(--white);
+	text-transform: uppercase;
+	font-weight: 500;
+	padding: 0 0;
+	display: inline-block;
+}
+
+
+.an-navbar {
+	background: var(--theme-color);
+	padding: 1.35rem 0;
+} */
+header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+
+.top-nav .social-links a {
+	width: 32px;
+	height: 32px;
+	display: inline-grid;
+	place-items: center;
+	color: var(--white);
+	border-radius: 50%;
+	border: 1px solid var(--white);
+	margin: 0.1rem;
+}
+
+.top-nav .social-links a:hover {
+	background-color: var(--primary);
+	border-color: var(--primary);
+}
+
+.top-nav .search-box {
+	width: 170px;
+	position: relative;
+	border-bottom: 1px solid var(--white);
+}
+
+.top-nav .search-box input {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	border: 0;
+	outline: none;
+	color: var(--white);
+}
+
+.top-nav .search-box input::placeholder {
+	color: var(--white);
+}
+
+.top-nav .search-box button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: var(--white);
+}
+
+.navbar-nav {
+	width: 100%;
+	justify-content: space-between;
+	border-top: 1px solid var(--white);
+	border-bottom: 1px solid var(--white);
+}
+
+.navbar-nav .nav-item .nav-link {
+	color: var(--white);
+	font-size: 1.063rem;
+	padding: 1rem 0.8rem;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+	background-color: var(--primary);
+}
+
+
+
+/* navigation css */
+
+/* footer css */
+footer {
+	background-color: var(--secondary);
+	padding-top: 4.375rem;
+	color: var(--white) !important;
+}
+
+footer .quickList a,
+footer .quickList h5 {
+	color: var(--white);
+}
+
+footer .quickList a:hover {
+	color: var(--primary);
+}
+
+footer .quickList li {
+	margin-bottom: 0.5rem;
+}
+
+footer .newsletter {
+	width: 100%;
+	height: 55px;
+	position: relative;
+	margin-block: 1.8rem;
+}
+
+footer .newsletter input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: transparent;
+	padding: 0.95rem;
+	border: 1.5px solid var(--white);
+	outline: none;
+	color: var(--white);
+}
+
+footer .newsletter input::placeholder {
+	color: var(--white);
+	font-size: 12px;
+}
+
+footer .newsletter button {
+	position: absolute;
+	height: 100%;
+	top: 1px;
+	border-radius: 0;
+	right: 1.2px;
+	transition: 0.5s;
+}
+
+footer .newsletter button svg {
+	fill: var(--primary);
+	transition: 0.5s;
+}
+
+footer .newsletter button:hover {
+	background-color: var(--primary);
+}
+
+footer .newsletter button:hover svg {
+	fill: var(--white);
+}
+
+footer .social-links a {
+	width: 60px;
+	height: 60px;
+	display: inline-grid;
+	place-items: center;
+	color: var(--white);
+	border-radius: 50%;
+	border: 1px solid var(--white);
+	font-size: 1.5rem;
+	margin: 0.1rem;
+	transition: 0.5s;
+}
+
+footer .social-links a:hover {
+	background-color: var(--primary);
+	color: var(--secondary);
+	border-color: var(--primary);
+}
+
+
+footer .copyRight {
+	border-top: 1px solid #CBCBCB;
+}
+
+footer .copyRight p {
+	font-size: 1.125rem;
+	color: var(--white) !important;
+}
+
+/* slider css */
+
+.main-slider {
+	height: 100vh;
+}
+
+.homeSlider.swiper-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+}
+
+.homeSlider.swiper-container .swiper-slide {
+
+	overflow: hidden;
+}
+
+.homeSlider.swiper-container .swiper-slide .slide-inner {
+	height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+
+
+/* inner pages */
+.btn-theme {
+	width: 100%;
+	border: 1px solid var(--primary);
+	border-radius: 70px;
+	padding: 0.8rem;
+	font-weight: bold;
+	color: var(--primary);
+	margin-bottom: 1.5rem;
+}
+
+.btn-theme:hover {
+	background-color: var(--primary);
+	color: var(--white);
+}
+
+.innerpage {
+	width: 100%;
+	height: 600px;
+	background: url('../images/innerBanner.png');
+	position: relative;
+	display: grid;
+	place-items: center;
+}
+
+.innerpage:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--black);
+	z-index: -1;
+}
+
+.innerpage h2 {
+	font-size: 3.75rem;
+	color: var(--white);
+	text-transform: uppercase;
+	transform: translateY(50%);
+}
+
+.home footer {
+	display: none;
+}
+
+/* about */
+.heading {
+	font-size: 3rem;
+	text-transform: uppercase;
+}
+
+.aboutSection p {
+	font-size: 1.375rem;
+}
+
+.aboutSection p.para,
+.resources p.para {
+	font-size: 1.05rem;
+	line-height: 1.8rem;
+	font-family: 'Poppins', sans-serif;
+}
+
+.aboutSection .figure1 {
+	width: 95%;
+	margin-left: auto;
+}
+
+.aboutSection .figure2 {
+	width: 95%;
+	margin-right: auto;
+}
+
+.aboutSection figure figcaption {
+	text-align: center;
+	margin-top: 1rem;
+	font-size: 1.12rem;
+	color: var(--primary);
+}
+
+.dailySection .card {
+	position: relative;
+}
+
+.dailySection .card .tag {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0.5rem 2rem;
+	background-color: var(--primary);
+}
+
+.dailySection .card span {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.125rem;
+	color: #424752;
+}
+
+.dailySection .card h4 {
+	font-size: 1.5rem;
+}
+
+.dailySection .card p {
+	font-size: 1.04rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	color: #424752;
+}
+
+.dailySection .card .card-text {
+	font-weight: 500;
+}
+
+.fw-700 {
+	font-weight: 700;
+}
+
+.fw-500 {
+	font-weight: 500;
+}
+
+.resources ul {
+	list-style: disc !important;
+	margin-left: 1rem;
+	width: 100%;
+}
+
+.resources ul li a {
+	color: var(--primary);
+}

@@ -1,0 +1,285 @@
+@media only screen and (min-width: 1700px) {
+    .container {
+        max-width: 1439px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .map iframe {
+        height: 600px;
+    }
+    .copyRight {
+        margin: 2rem 0 0;
+    }
+    .main-slider .carousel-item>img {
+        min-height: 45rem;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 1445px) {
+    footer [class^='col-']:nth-child(2):before {
+        right: -35%;
+    }
+    .cntctLst .cntctContent p br {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    footer {
+        margin: -16% 0 0;
+        padding: 20rem 0 0;
+    }
+    .main-slider .carousel-caption .slideContent h2 {
+        font-size: 5rem;
+    }
+    .main-slider .cupOne {
+        width: 30%;
+    }
+    .talkSec {
+        padding: 6em 0;
+    }
+    .talkContent .line3:before,
+    .talkContent .line3:after {
+        width: 15%;
+    }
+    .talkContent .line2:before,
+    .talkContent .line2:after {
+        bottom: -16.8rem;
+        height: 198px;
+    }
+    .talkContent .line1:before,
+    .talkContent .line1:after {
+        bottom: -16.8rem;
+        width: 50%;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    html {
+        font-size: 13px;
+    }
+    .main-navigate .navbar-brand img {
+        width: 120px;
+    }
+    .talkContent .line3:before,
+    .talkContent .line3:after {
+        width: 8%;
+    }
+    .talkContent .line2:before,
+    .talkContent .line2:after {
+        bottom: -14.55rem;
+        height: 160px;
+    }
+    .talkContent .line1:before,
+    .talkContent .line1:after {
+        bottom: -14.55rem;
+    }
+    .menuSec {
+        padding: 20em 0 6em;
+        margin-top: -17rem;
+    }
+    .menuSec .menu6 {
+        bottom: -12%;
+        width: 30%;
+    }
+    .abtSec {
+        padding: 7em 0;
+    }
+    .talkContent .line2:before,
+    .talkContent .line2:after {
+        height: 130px;
+    }
+    .map iframe {
+        height: 400px;
+    }
+    footer {
+        margin: -18% 0 0;
+        padding: 22rem 0 0;
+    }
+    .contactSec h2 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    html {
+        font-size: 12px;
+    }
+    .main-navigate .navbar-brand img {
+        width: 100px;
+    }
+    .main-navigate .navbar-toggler {
+        color: #fff;
+    }
+    .main-navigate .navbar-collapse {
+        background: var(--primary-color);
+        padding: 1rem 0;
+    }
+    .main-navigate .navbar-nav {
+        gap: 1rem;
+    }
+    .main-slider .carousel-item>img {
+        min-height: 600px;
+        object-fit: cover;
+    }
+    .abtImg figure+img {
+        bottom: -5%;
+        width: 50%;
+    }
+    .talkContent h2 {
+        font-size: 3.55rem;
+    }
+    .talkContent .line2:before,
+    .talkContent .line2:after {
+        height: 120px;
+    }
+    .map iframe {
+        height: 450px;
+    }
+    footer {
+        margin: -25% 0 0;
+    }
+    footer [class^='col-']:nth-child(2):before {
+        right: 0;
+    }
+    .cofeHeading h2 {
+        padding: 0;
+        font-size: 2rem;
+    }
+    .cofeHeading h2 span {
+        font-size: 1.125rem;
+    }
+    .cofeList .codeBox .cofeContent ul li h2 {
+        font-size: 1rem;
+    }
+    .cofeList .codeBox .cofeContent ul li span strong {
+        font-size: 1.125rem;
+    }
+    .cofeList .codeBox {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+    .cofeList .codeBox img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    html {
+        font-size: 14px;
+    }
+    footer [class^='col-']:before {
+        display: none;
+    }
+    .main-slider .carousel-caption .slideContent h2 {
+        font-size: 4rem;
+    }
+    .talkSec {
+        padding: 4em 0 6em;
+    }
+    .talkContent .line2:before,
+    .talkContent .line2:after,
+    .talkContent .line1:before,
+    .talkContent .line1:after {
+        bottom: -13.125rem;
+    }
+    footer {
+        margin: -56% 0 0;
+        padding: 32rem 0 0;
+    }
+    .ftrContent {
+        margin-bottom: 2rem;
+    }
+    .inn-cntct .form-group {
+        margin-bottom: 0;
+    }
+    .inn-cntct .form-group label {
+        margin-top: 2rem;
+    }
+    .inn-cntct .contactBtn {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+    .ContactSecTo {
+        padding: 3em 0;
+    }
+    .ContactSecTo .row {
+        gap: 1.5rem 0;
+    }
+    .mn-icons img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 575.98px) {
+    html {
+        font-size: 13px;
+    }
+    .main-slider .carousel-caption .slideContent h2 {
+        font-size: 3.5rem;
+    }
+    .main-slider .carousel-caption .slideContent h2 br,
+    .talkContent .line3 {
+        display: none;
+    }
+    .main-slider .cupOne {
+        width: 50%;
+        bottom: 0;
+    }
+    .menuSec .menu6 {
+        bottom: -7%;
+        width: 35%;
+    }
+    .abtImg {
+        margin: 0 0 2rem;
+    }
+    .abtContent h2 {
+        font-size: 3.5rem;
+    }
+    .talkContent h2 {
+        font-size: 3rem;
+    }
+    footer {
+        margin: -90% 0 0;
+    }
+    .contactSec h2 {
+        font-size: 3.5rem;
+    }
+    .contactSec .inn-cntct {
+        padding: 2rem 1rem;
+    }
+    .cartBtn {
+        display: none;
+    }
+    .main-slider .carousel-item>img {
+        min-height: 350px;
+        object-fit: cover;
+    }
+    .menuSec .sectionHeading {
+        font-size: 3rem;
+    }
+    header {
+        padding: 1em 0 0;
+    }
+    .main-navigate .navbar-brand img {
+        width: 80px;
+    }
+}
+
+@media (max-width: 320.98px) {
+    html {
+        font-size: 11px;
+    }
+}
