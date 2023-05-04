@@ -12,8 +12,11 @@ class Blog extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     protected $fillable = [
+        'blog_date',
         'blog_title',
-        'blog_description'
+        'blog_heading',
+        'blog_description',
+
     ];
 
     public function get_blog_image()

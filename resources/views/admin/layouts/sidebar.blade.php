@@ -23,8 +23,25 @@
                     <ul class="submenu">
                         <li><a href="{{ route('cms.home') }}">Home</a></li>
                         <li><a href="{{ route('cms.about') }}">About Us</a></li>
-                        <li><a href="{{route('cms.services')}}">Our Services</a></li>
-{{--                        <li><a href="{{route('cms.blogs')}}">Blog</a></li>--}}
+{{--                        <li><a href="{{route('cms.services')}}">Our Services</a></li>--}}
+{{--                        <li><a href="{{ route('admin-blog-index') }}"><span>Daily Bible Study</span></a></li>--}}
+                        <li><a href="{{route('cms.blogs')}}">Daily Bible Study</a></li>
+                        <li><a href="{{route('index.blog')}}">Daily Bible Study Post</a></li>
+                        <li><a href="{{route('cms.lessons')}}">Lessons On Daddy lap</a></li>
+                        <li>
+                            <a href="#blog" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+                                <i class="fas fa-fw fa-newspaper"></i>{{ __('Lessons') }}
+                            </a>
+                            <ul class="collapse list-unstyled" id="blog" data-parent="#accordion">
+                                <li>
+                                    <a href="{{route('index.lesson')}}"><span>{{ __('add lessons') }}</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{route('index.additional')}}"><span>{{ __('Additional Items:') }}</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{route('cms.resource')}}">OutSite Resources</a></li>
 {{--                        <li><a href="{{ route('cms.faqs') }}">Faqs</a></li>--}}
 {{--                        <li><a href="{{ route('cms.fee.schedule') }}">Fee Schedule</a></li>--}}
                     </ul>

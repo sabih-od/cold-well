@@ -34,9 +34,21 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label" for="date-input">Date</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="date" id="date-input" name="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">Title</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control" type="text" name="add_blog_title" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Heading</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" name="heading" placeholder="">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdditionalItemController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CmsContoller;
+use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\ReviewsController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SubscriberController;
@@ -100,6 +102,8 @@ Route::namespace('Admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], 'about-cms', [CmsContoller::class, 'aboutUs'])->name('cms.about');
         Route::match(['get', 'post'], 'services-cms', [CmsContoller::class, 'ourServices'])->name('cms.services');
         Route::match(['get', 'post'], 'blogs-cms', [CmsContoller::class, 'blogs'])->name('cms.blogs');
+        Route::match(['get', 'post'], 'resource-cms', [CmsContoller::class, 'resource'])->name('cms.resource');
+        Route::match(['get', 'post'], 'lessons-cms', [CmsContoller::class, 'lessons'])->name('cms.lessons');
         Route::match(['get', 'post'], 'faqs-cms', [CmsContoller::class, 'faqs'])->name('cms.faqs');
         Route::match(['get', 'post'], 'fee-schedule-cms', [CmsContoller::class, 'feeSchedule'])->name('cms.fee.schedule');
         Route::match(['get', 'post'], 'settings-cms', [CmsContoller::class, 'settings'])->name('cms.settings');
@@ -107,14 +111,32 @@ Route::namespace('Admin')->middleware('admin')->group(function () {
         Route::get('/subscriber', [SubscriberController::class, 'subscriber'])->name('subscriber.List');
 
 
-//        // CMS Add blog
-//        Route::post('/create/blog', [BlogController::class, 'blogCreate'])->name('create.blog');
-//        Route::get('/edit-blog/{blog}', [BlogController::class, 'blogEdit'])->name('edit.blog');
-//        Route::post('/update/blog/{id}', [BlogController::class, 'blogUpdate'])->name('update.blog');
-//        Route::post('/destroy/blog/{id}', [BlogController::class, 'blogDestroy'])->name('destroy.blog');
-//
-//        Route::get('/add-blog', [BlogController::class, 'addBlog'])->name('add.blog');
-//        Route::get('/index-blog', [BlogController::class, 'indexBlog'])->name('index.blog');
+        // CMS Add blog
+        Route::post('/create/blog', [BlogController::class, 'blogCreate'])->name('create.blog');
+        Route::get('/edit-blog/{blog}', [BlogController::class, 'blogEdit'])->name('edit.blog');
+        Route::post('/update/blog/{id}', [BlogController::class, 'blogUpdate'])->name('update.blog');
+        Route::post('/destroy/blog/{id}', [BlogController::class, 'blogDestroy'])->name('destroy.blog');
+
+        Route::get('/add-blog', [BlogController::class, 'addBlog'])->name('add.blog');
+        Route::get('/index-blog', [BlogController::class, 'indexBlog'])->name('index.blog');
+
+        // CMS Add lesson
+        Route::post('/create/lesson', [LessonController::class, 'lessonCreate'])->name('create.lesson');
+        Route::get('/edit-lesson/{lesson}', [LessonController::class, 'lessonEdit'])->name('edit.lesson');
+        Route::post('/update/lesson/{id}', [LessonController::class, 'lessonUpdate'])->name('update.lesson');
+        Route::post('/destroy/lesson/{id}', [LessonController::class, 'lessonDestroy'])->name('destroy.lesson');
+
+        Route::get('/add-lesson', [LessonController::class, 'addLesson'])->name('add.lesson');
+        Route::get('/index-lesson', [LessonController::class, 'indexLesson'])->name('index.lesson');
+
+        // CMS Add Addtional items
+        Route::post('/create/additional', [AdditionalItemController::class, 'additionalCreate'])->name('create.additional');
+        Route::get('/edit-additional/{additional}', [AdditionalItemController::class, 'additionalEdit'])->name('edit.additional');
+        Route::post('/update/additional/{id}', [AdditionalItemController::class, 'additionalUpdate'])->name('update.additional');
+        Route::post('/destroy/additional/{id}', [AdditionalItemController::class, 'additionalDestroy'])->name('destroy.additional');
+
+        Route::get('/add-additional', [AdditionalItemController::class, 'addAdditional'])->name('add.additional');
+        Route::get('/index-additional', [AdditionalItemController::class, 'indexAdditional'])->name('index.additional');
 
         // CMS Add Service
         Route::post('/service/create', [ServiceController::class, 'serviceCreate'])->name('admin.service.store');

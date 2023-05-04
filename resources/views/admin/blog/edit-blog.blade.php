@@ -23,26 +23,38 @@
                 <form action="{{ route('update.blog', $blog->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-
                         <label class="col-sm-12 col-md-2 col-form-label">Image</label>
                         <div class="img-upload ml-3">
 {{--                            {{dd($blog->getMedia('blog_banner_image'))}}--}}
                             <div id="image-preview" class="img-preview"
-                                 style="background:url({{ $blog->getMedia('blog_banner_image')[0]->getUrl()}});">
+{{--                                 style="background:url({{ $blog->getMedia('add_blog_image')[0]->getUrl()}});"--}}
+                            >
                                 <label for="image-upload" class="img-label"
                                        id="image-label">{{ __('Upload Image') }}</label>
-                                <input type="file" name="add_blog_image" class="img-upload @error('banner_image') is-invalid @enderror" id="image-upload"
-                                       value="{{$blog->blog_banner_image}}">
+                                <input type="file" name="add_blog_image" class="img-upload @error('add_blog_image') is-invalid @enderror" id="image-upload"
+                                       value="{{$blog->add_blog_image}}">
                             </div>
-                            @error('banner_image')
+                            @error('add_blog_image')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label" for="date-input">Date</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="date" id="date-input" name="date" class="form-control" value="{{ $blog->blog_date}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">Title</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control" type="text" name="add_blog_title" value="{{ $blog->blog_title }}" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Heading</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" type="text" name="heading" value="{{ $blog->blog_heading }}" placeholder="">
                         </div>
                     </div>
                     <div class="form-group row">

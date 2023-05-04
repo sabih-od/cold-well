@@ -21,9 +21,9 @@ class CmsContoller extends Controller
             $home = Page::where('name', 'Home')->first();
             $data = json_decode(json_encode($home->content));
             $count = isset($home) ? $home->getMedia('home_image')->count() : '';
-            isset($home) ? $home->getMedia('about_image') : '';
-            isset($home) ? $home->getMedia('about_section_image') : '';
-            isset($home) ? $home->getMedia('service_image') : '';
+//            isset($home) ? $home->getMedia('about_image') : '';
+//            isset($home) ? $home->getMedia('about_section_image') : '';
+//            isset($home) ? $home->getMedia('service_image') : '';
             return view('admin.home.create-home', compact('home', 'count', 'data'));
         }
         try {
@@ -32,15 +32,15 @@ class CmsContoller extends Controller
                 'meta_description' => $request['meta_description'],
                 'home_title' => $request['home_title'],
                 'home_heading' => $request['home_heading'],
-                'service_title' => $request['service_title'],
-                'service_description' => html_entity_decode($request['service_description']),
-                'service_heading' => $request['service_heading'],
-                'service_description1' => html_entity_decode($request['service_description1']),
-                'about_sub_title' => $request['about_sub_title'],
-                'about_heading' => $request['about_heading'],
-                'about_description' => html_entity_decode($request['about_description']),
-                'blog_sub_title' => $request['blog_sub_title'],
-                'blog_heading' => $request['blog_heading']
+//                'service_title' => $request['service_title'],
+//                'service_description' => html_entity_decode($request['service_description']),
+//                'service_heading' => $request['service_heading'],
+//                'service_description1' => html_entity_decode($request['service_description1']),
+//                'about_sub_title' => $request['about_sub_title'],
+//                'about_heading' => $request['about_heading'],
+//                'about_description' => html_entity_decode($request['about_description']),
+//                'blog_sub_title' => $request['blog_sub_title'],
+//                'blog_heading' => $request['blog_heading']
             ];
 
             $home = $this->updateContent('Home', 'home', $request, $content);
@@ -50,23 +50,23 @@ class CmsContoller extends Controller
                 $home->clearMediaCollection('home_image');
                 $home->addMediaFromRequest('home_banner_image')->toMediaCollection('home_image');
             }
-            if ($request->has('about_image')) {
-                //bannerImage
-                $home->clearMediaCollection('about_image');
-                $home->addMediaFromRequest('about_image')->toMediaCollection('about_image');
-            }
-
-            if ($request->has('about_section_image')) {
-                //bannerImage
-                $home->clearMediaCollection('about_section_image');
-                $home->addMediaFromRequest('about_section_image')->toMediaCollection('about_section_image');
-            }
-
-            if ($request->has('service_image')) {
-                //bannerImage
-                $home->clearMediaCollection('service_image');
-                $home->addMediaFromRequest('service_image')->toMediaCollection('service_image');
-            }
+//            if ($request->has('about_image')) {
+//                //bannerImage
+//                $home->clearMediaCollection('about_image');
+//                $home->addMediaFromRequest('about_image')->toMediaCollection('about_image');
+//            }
+//
+//            if ($request->has('about_section_image')) {
+//                //bannerImage
+//                $home->clearMediaCollection('about_section_image');
+//                $home->addMediaFromRequest('about_section_image')->toMediaCollection('about_section_image');
+//            }
+//
+//            if ($request->has('service_image')) {
+//                //bannerImage
+//                $home->clearMediaCollection('service_image');
+//                $home->addMediaFromRequest('service_image')->toMediaCollection('service_image');
+//            }
             return back()->with('success', 'Home Updated Successfully');
         } catch (\Exception $exception) {
             return back()->with('error', $exception->getMessage());
@@ -188,6 +188,10 @@ class CmsContoller extends Controller
                 'mission_section_heading' => $request['mission_section_heading'],
                 'mission_description' => html_entity_decode($request['mission_description']),
                 'mission_section_description' => html_entity_decode($request['mission_section_description']),
+                'image0-des' => html_entity_decode($request['image0-des']),
+                'about-des' => html_entity_decode($request['about-des']),
+                'image1-des' => html_entity_decode($request['image1-des']),
+                'about-section-third' =>html_entity_decode($request['about-section-third']),
             ];
 
             $about = $this->updateContent('About Us', 'about-us', $request, $content);
@@ -265,6 +269,102 @@ class CmsContoller extends Controller
                 //bannerImage
                 $blog->addMediaFromRequest('blog_section_image')->toMediaCollection('blog_image');
             }
+
+            return back()->with('success', 'Blogs Updated Successfully');
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function lessons(Request $request)
+    {
+        if ($request->method() == 'GET') {
+            $lessons = Page::where('name', 'Lesson')->first();
+            $count = isset($lessons) ? $lessons->getMedia('lesson_banner_image')->count() : '';
+            isset($lessons) ? $lessons->getMedia('lesson_image') : '';
+            return view('admin.lessons.create', compact('lessons', 'count'));
+        }
+
+//        if ($request->method() == 'POST') {
+//            $validate = Validator::make($request->all(), array(
+//                'meta_title' => 'required',
+//                'meta_description' => 'required',
+//                'banner_title' => 'required',
+//                'blog_section_title' => 'required',
+//                'blog_section_heading' => 'required',
+////                'banner_image' => 'required|mimes:jpeg,png,jpg',
+//            ));
+//
+//            if ($validate->fails()) {
+//                return redirect()->back()->with('error', $validate->getMessageBag()->first());
+//            }
+
+        try {
+            $content = [
+                'meta_title' => $request['meta_title'],
+                'meta_description' => $request['meta_description'],
+                'banner_title' => $request['banner_title'],
+                'lesson_section_heading' => $request['lesson_section_heading'],
+                'lesson_section_des' => $request['lesson_section_des'],
+                'lesson' => $request['lesson'],
+                'additional' => $request['additional'],
+            ];
+
+
+            $lesson = $this->updateContent('Lesson', 'lesson', $request, $content);
+
+            if ($request->has('banner_image')) {
+                //bannerImage
+                $lesson->addMediaFromRequest('banner_image')->toMediaCollection('lesson_banner_image');
+            }
+
+//            if ($request->has('blog_section_image')) {
+//                //bannerImage
+//                $blog->addMediaFromRequest('blog_section_image')->toMediaCollection('blog_image');
+//            }
+
+            return back()->with('success', 'Lesson Updated Successfully');
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function resource(Request $request)
+    {
+        if ($request->method() == 'GET') {
+            $resource = Page::where('name', 'Resource')->first();
+            return view('admin.resources.create-resource', compact('resource'));
+        }
+        try {
+            $content = [
+                'meta_title' => $request['meta_title'],
+                'meta_description' => $request['meta_description'],
+                'resource_title' => $request['resource_title'],
+                'resource_section_title' => $request['resource_section_title'],
+                'resource_section_heading' => $request['resource_section_heading'],
+                'description' => $request['description'],
+            ];
+
+
+            $blog = $this->updateContent('Resource', 'resource', $request, $content);
+
+            if ($request->has('banner_image')) {
+                //bannerImage
+                $blog->addMediaFromRequest('banner_image')->toMediaCollection('resource_banner_image');
+            }
+
+//            if ($request->has('blog_section_image')) {
+//                //bannerImage
+//                $blog->addMediaFromRequest('blog_section_image')->toMediaCollection('blog_image');
+//            }
 
             return back()->with('success', 'Blogs Updated Successfully');
         } catch (\Exception $exception) {

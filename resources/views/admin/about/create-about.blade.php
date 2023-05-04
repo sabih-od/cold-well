@@ -66,9 +66,9 @@
                             @enderror
                         </div>
                     </div>
-                    <h4 class="h4 text-blue my-4">Our Mission Section</h4>
+                    <h4 class="h4 text-blue my-4">About Section First</h4>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Mission Section Title</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section Title</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control @error('mission_section_title') is-invalid @enderror"
                                    value="{{ $abouts->content['mission_section_title'] }}"
@@ -79,7 +79,7 @@
                         @enderror
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Mission Section Heading</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section Heading</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control @error('mission_section_heading') is-invalid @enderror"
                                    value="{{ $abouts->content['mission_section_heading'] }}"
@@ -90,7 +90,7 @@
                         @enderror
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Mission Section Description</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section Description</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control @error('mission_description') is-invalid @enderror" placeholder=""
                                    name="mission_description"
@@ -101,7 +101,7 @@
                         @enderror
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Mission Section Image</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section Image</label>
                         <div class="img-upload ml-3">
                             <div id="image-preview" class="img-preview"
                                  style="background:url({{ !empty($abouts->getMedia('mission_image')->first())
@@ -119,9 +119,31 @@
                             @enderror
                         </div>
                     </div>
-                    <h4 class="h4 text-blue my-4">Our Mission Section-2</h4>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Mission Section Description</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Image description</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control @error('image0-des') is-invalid @enderror"
+                                   value="{{ $abouts->content['image0-des'] }}"
+                                   name="image0-des" type="text">
+                        </div>
+                        @error('mission_section_title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">about description after Image</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control @error('about-des') is-invalid @enderror"
+                                   value="{{ $abouts->content['about-des'] }}"
+                                   name="about-des" type="text">
+                        </div>
+                        @error('mission_section_title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <h4 class="h4 text-blue my-4">About Section-2</h4>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section Description</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control @error('mission_section_description') is-invalid @enderror" placeholder=""
                                    name="mission_section_description"
@@ -132,7 +154,7 @@
                         @enderror
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Mission Section Image</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section Image</label>
                         <div class="img-upload ml-3">
                             <div id="image-preview" class="img-preview"
                                  style="background:url({{ !empty($abouts->getMedia('mission_section_image')->first())
@@ -149,6 +171,29 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">Image description</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control @error('image1-des') is-invalid @enderror"
+                                   value="{{ $abouts->content['image1-des'] }}"
+                                   name="image1-des" type="text">
+                        </div>
+                        @error('mission_section_title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">About Section End</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control @error('about-section-third') is-invalid @enderror" placeholder=""
+                                   name="about-section-third"
+                                   value="{{ $abouts->content['about-section-third'] }}"
+                                   type="search">
+                        </div>
+                        @error('about-section-third')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm scroll-click collapsed">Submit</button>
                 </form>

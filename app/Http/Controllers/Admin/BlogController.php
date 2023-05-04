@@ -38,7 +38,9 @@ class BlogController extends Controller
 //        }
         try {
             $blog = new Blog();
+            $blog->blog_date = $request->date;
             $blog->blog_title = $request->add_blog_title;
+            $blog->blog_heading = $request->heading;
             $blog->blog_description = $request->add_blog_description;
             $blog->addMediaFromRequest('add_blog_image')->toMediaCollection('blog_image');
             $blog->save();
@@ -59,11 +61,15 @@ class BlogController extends Controller
     public function blogUpdate(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
+            'date' => 'required',
             'add_blog_description' => 'required',
             'add_blog_title' => 'required',
+            'heading' => 'required',
         ],[
+            'date.required' => 'Date is Required',
             'add_blog_description.required' => 'Description Field Is Required',
             'add_blog_title.required' => 'Title Field Is Required',
+            'heading.required' => 'heading is Required',
         ]);
 
         if ($validate->fails()) {
@@ -74,7 +80,9 @@ class BlogController extends Controller
             if ($request->has('add_blog_image')) {
                 $blog->addMediaFromRequest('add_blog_image')->toMediaCollection('blog_image');
             }
+            $blog->blog_date = $request->get('date');
             $blog->blog_title = $request->get('add_blog_title');
+            $blog->blog_heading = $request->get('heading');
             $blog->blog_description = $request->get('add_blog_description');
             $blog->save();
             return redirect()->route('index.blog')->with('success', 'Blog Updated Successfully');
