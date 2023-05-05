@@ -41,9 +41,9 @@
                 </div>
                 <div class="col-lg-4">
                     <figure class="figure1"  data-aos="fade-left">
-                        <img style="background:url({{ !empty($about->getMedia('mission_image')->first())
+                        <img src="{{ !empty($about->getMedia('mission_image')->first())
                         ? $about->getMedia('mission_image')->first()->getUrl()
-                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }})" class="img-fluid" alt="">
+                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }}" class="img-fluid" alt="">
                         <figcaption>{{$about->content['image0-des']}}</figcaption>
                     </figure>
                 </div>
@@ -57,9 +57,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <figure class="figure2 my-5"  data-aos="fade-right">
-                        <img  style="background:url({{ !empty($about->getMedia('mission_section_image')->first())
+                        <img  src="{{ !empty($about->getMedia('mission_section_image')->first())
                         ? $about->getMedia('mission_section_image')->first()->getUrl()
-                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }})" class="w-100" alt="">
+                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }}" class="w-100" alt="">
                         <figcaption>{{$about->content['image1-des']}}</figcaption>
                     </figure>
                 </div>
