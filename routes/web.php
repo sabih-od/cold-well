@@ -27,6 +27,7 @@ Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::post('/home-email', [FrontController::class, 'homeEmail'])->name('home.email');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+Route::post('/rating',[FrontController::class,'rating'])->name('blog.rating');
 Route::match(['get', 'post'], '/contact', [FrontController::class, 'contact'])->name('contact');
 Route::get('/services', [FrontController::class, 'services'])->name('our.services');
 Route::get('/resources',[FrontController::class,'resources'])->name('resources');

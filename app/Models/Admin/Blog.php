@@ -24,4 +24,9 @@ class Blog extends Model implements HasMedia
         $image_check =  $this->getMedia('blog_banner_image')->first();
         return $image_check ? $image_check->getUrl() : asset("pages/images/portfolio1.jpg");
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class, 'blog_id');
+    }
 }

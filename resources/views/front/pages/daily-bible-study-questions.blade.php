@@ -29,6 +29,28 @@
                             <h4 class="card-title">{!! $post->blog_title !!}</h4>
                             <p class="card-text">{!!$post->blog_heading !!}</p>
                             <p class="para">{!! $post->blog_description !!}</p>
+                            <form action="{{route('blog.rating')}}" method="POST" class="reviewForm">
+                                @csrf
+                                <div class="row col-md-12">
+                                    <div class="form-group col-md-16">
+                                        <label for="rating">Rating</label>
+                                        <div class="rate">
+                                            <input type="radio" id="star5" name="rating" value="1"/>
+{{--                                            <label for="star5" title="text">5 stars</label>--}}
+                                            <input type="radio" id="star4" name="rating" value="2"/>
+{{--                                            <label for="star4" title="text">4 stars</label>--}}
+                                            <input type="radio" id="star3" name="rating" value="3"/>
+{{--                                            <label for="star3" title="text">3 stars</label>--}}
+                                            <input type="radio" id="star2" name="rating" value="4"/>
+{{--                                            <label for="star2" title="text">2 stars</label>--}}
+                                            <input type="radio" id="star1" name="rating" value="5"/>
+{{--                                            <label for="star1" title="text">1 star</label>--}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="blog_id" value="{{$post->id}}">
+                                <button type="submit" class="btn">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -314,6 +336,46 @@
 {{--    </section>--}}
 
 @endsection
-
 @section('script')
+
+<script>
+    //review
+    $(document).ready(function (e) {
+        e.preventDefault();
+        /* 1. Visualizing things on Hover - See next part for action on click */
+        $('.reviewForm span i').on('mouseover', function () {
+            var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+            // console.log(onStar);
+            // Now highlight all the stars that's not after the current hovered star
+            $(this).parent().children('i').each(function (e) {
+                if (e < onStar) {
+                    $(this).addClass('hover');
+                } else {
+                    $(this).removeClass('hover');
+                }
+            });
+
+        }).on('mouseout', function () {
+            $(this).parent().children('i').each(function (e) {
+                $(this).removeClass('hover');
+            });
+        });
+
+
+        $('.reviewForm span i').on('click', function () {
+            var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+            //console.log(onStar)
+            var stars = $(this).parent().children('i');
+            for (i = 0; i < stars.length; i++) {
+                $(stars[i]).removeClass('star');
+            }
+
+            for (i = 0; i < onStar; i++) {
+                $(stars[i]).addClass('star');
+                $('#rating').val(parseInt(onStar));
+            }
+        });
+    })
+
+</script>
 @endsection

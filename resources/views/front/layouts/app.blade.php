@@ -10,6 +10,7 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/custom.min.css')}}" />
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>If I walk with Jesus</title>
     </head>
 
@@ -160,6 +161,8 @@
     <script src="{{asset('js/gsap.js')}}"></script>
     <script src="{{asset('js/scrollTrigger.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     @if(session()->has('success'))
         <script type="text/javascript">  toastr.success('{{ session('success')}}');</script>

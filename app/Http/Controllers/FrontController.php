@@ -6,6 +6,7 @@ use App\Models\Admin\Additional;
 use App\Models\Admin\Blog;
 use App\Models\Admin\Lesson;
 use App\Models\Admin\Page;
+use App\Models\Admin\Rating;
 use App\Models\Admin\Service;
 use App\Models\Reviews;
 use App\Models\Settings;
@@ -271,6 +272,21 @@ class FrontController extends Controller
 //            return view('front.pages.daily-bible-study-questions');
             return view('front.pages.outside-resources', compact('resource'));
         }
+
+    }
+
+    public function rating(Request $request){
+
+        $rating = new Rating;
+        $rating->blog_id = $request['blog_id'];
+        $rating->rating = $request['rating'];
+        $rating->save();
+
+//        $blog = Blog::find($validated['blog_id']);
+//        $blog->average_rating = $blog->ratings()->avg('rating');
+//        $blog->save();
+
+        return redirect()->back()->with('success','rating has been Submitted');
 
     }
 }
