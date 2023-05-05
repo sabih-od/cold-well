@@ -25,18 +25,14 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">Image</label>
                         <div class="img-upload ml-3">
-{{--                            {{dd($blog->getMedia('blog_banner_image'))}}--}}
                             <div id="image-preview" class="img-preview"
-{{--                                 style="background:url({{ $blog->getMedia('add_blog_image')[0]->getUrl()}});"--}}
-                            >
+                                 style="background:url({{ !empty($blog->getMedia('blog_image')->first())
+                        ? $blog->getMedia('blog_image')->first()->getUrl()
+                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }})">
                                 <label for="image-upload" class="img-label"
-                                       id="image-label">{{ __('Upload Image') }}</label>
-                                <input type="file" name="add_blog_image" class="img-upload @error('add_blog_image') is-invalid @enderror" id="image-upload"
-                                       value="{{$blog->add_blog_image}}">
+                                       id="image-label">{{ __('Blog Image') }}</label>
+                                <input type="file" name="add_blog_image" class="img-upload" id="image-upload">
                             </div>
-                            @error('add_blog_image')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">

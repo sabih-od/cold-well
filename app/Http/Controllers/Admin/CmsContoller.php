@@ -230,7 +230,7 @@ class CmsContoller extends Controller
         if ($request->method() == 'GET') {
             $blogs = Page::where('name', 'Blog')->first();
             $count = isset($blogs) ? $blogs->getMedia('blog_banner_image')->count() : '';
-            isset($blogs) ? $blogs->getMedia('blog_image') : '';
+//            isset($blogs) ? $blogs->getMedia('blog_image') : '';
             return view('admin.blog.create', compact('blogs', 'count'));
         }
 
@@ -260,11 +260,16 @@ class CmsContoller extends Controller
 
             $blog = $this->updateContent('Blog', 'blog', $request, $content);
 
+//            if ($request->has('banner_image')) {
+//                //bannerImage
+//                $blog->addMediaFromRequest('banner_image')->toMediaCollection('blog_banner_image');
+//            }
             if ($request->has('banner_image')) {
                 //bannerImage
+                $blog->clearMediaCollection('blog_banner_image');
                 $blog->addMediaFromRequest('banner_image')->toMediaCollection('blog_banner_image');
             }
-
+//
             if ($request->has('blog_section_image')) {
                 //bannerImage
                 $blog->addMediaFromRequest('blog_section_image')->toMediaCollection('blog_image');
@@ -285,7 +290,7 @@ class CmsContoller extends Controller
         if ($request->method() == 'GET') {
             $lessons = Page::where('name', 'Lesson')->first();
             $count = isset($lessons) ? $lessons->getMedia('lesson_banner_image')->count() : '';
-            isset($lessons) ? $lessons->getMedia('lesson_image') : '';
+//            isset($lessons) ? $lessons->getMedia('lesson_image') : '';
             return view('admin.lessons.create', compact('lessons', 'count'));
         }
 
@@ -319,6 +324,7 @@ class CmsContoller extends Controller
 
             if ($request->has('banner_image')) {
                 //bannerImage
+                $lesson->clearMediaCollection('lesson_banner_image');
                 $lesson->addMediaFromRequest('banner_image')->toMediaCollection('lesson_banner_image');
             }
 
@@ -341,7 +347,8 @@ class CmsContoller extends Controller
     {
         if ($request->method() == 'GET') {
             $resource = Page::where('name', 'Resource')->first();
-            return view('admin.resources.create-resource', compact('resource'));
+            $count = isset($resource) ? $resource->getMedia('resource_banner_image')->count() : '';
+            return view('admin.resources.create-resource', compact('resource','count'));
         }
         try {
             $content = [
@@ -354,11 +361,12 @@ class CmsContoller extends Controller
             ];
 
 
-            $blog = $this->updateContent('Resource', 'resource', $request, $content);
+            $resource = $this->updateContent('Resource', 'resource', $request, $content);
 
-            if ($request->has('banner_image')) {
+            if ($request->has('resource_banner_image')) {
                 //bannerImage
-                $blog->addMediaFromRequest('banner_image')->toMediaCollection('resource_banner_image');
+                $resource->clearMediaCollection('banner_image');
+                $resource->addMediaFromRequest('resource_banner_image')->toMediaCollection('banner_image');
             }
 
 //            if ($request->has('blog_section_image')) {

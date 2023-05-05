@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Tax-Essentials</title>
+    <title>If I Walk With Jesus</title>
 {{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
 
     <!-- Site favicon -->

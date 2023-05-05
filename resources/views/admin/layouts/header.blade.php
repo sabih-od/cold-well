@@ -109,7 +109,7 @@
 {{--						<span class="user-icon">--}}
 {{--							<img src="{{asset('dashboard/vendors/images/photo1.jpg')}}" alt="">--}}
 {{--						</span>--}}
-                    <span class="user-name my-3">Tax-Essentials</span>
+                    <span class="user-name my-3">If I Walk With Jesus</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 {{--                    <a class="dropdown-item" href="#"><i class="dw dw-user1"></i> Profile</a>--}}

@@ -22,7 +22,7 @@
 
     <body>
     <!-- Begi`n: Header -->
-
+{{--    @dd($setting->logo)--}}
     <header class="">
         <div class="main-navigate">
             <div class="an-navbar">
@@ -71,10 +71,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Forum</a>
                                 </li>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Android App</a>
-                                </li>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Facebook</a>
@@ -104,7 +102,7 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-md-3 mb-5">
-                    <a href="#" class="footerLogo"><img src="{{asset('images/logo.png')}}" class="img-fluid" alt="img"></a>
+                    <a href="#" class="footerLogo"><img src="{{ !empty($setting->getMedia('settings_image')->first()) ? $setting->getMedia('settings_image')->first()->getUrl() : $setting->logo}}" class="img-fluid" alt="img"></a>
                 </div>
                 <div class="col-md-3 mb-5">
                     <div class="quickList">

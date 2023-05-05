@@ -54,9 +54,9 @@
                         <label class="col-sm-12 col-md-2 col-form-label">Resouce Banner Image</label>
                         <div class="img-upload ml-3">
                             <div id="image-preview" class="img-preview"
-{{--                                 style="background:url({{ !empty($resource->getMedia('about_us_image')->first())--}}
-{{--                        ? $resource->getMedia('about_us_image')->first()->getUrl()--}}
-{{--                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }})">--}}
+                                 style="background:url({{ !empty($resource->getMedia('banner_image')->first())
+                        ? $resource->getMedia('banner_image')->first()->getUrl()
+                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }})">
                                 <label for="image-upload" class="img-label"
                                        id="image-label">{{ __('Upload Image') }}</label>
                                 <input type="file" name="resource_banner_image"

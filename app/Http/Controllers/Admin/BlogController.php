@@ -62,6 +62,7 @@ class BlogController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'date' => 'required',
+//            'add_blog_image' => 'required',
             'add_blog_description' => 'required',
             'add_blog_title' => 'required',
             'heading' => 'required',
@@ -78,6 +79,7 @@ class BlogController extends Controller
         try {
             $blog = Blog::find($id);
             if ($request->has('add_blog_image')) {
+                $blog->clearMediaCollection('blog_image');
                 $blog->addMediaFromRequest('add_blog_image')->toMediaCollection('blog_image');
             }
             $blog->blog_date = $request->get('date');

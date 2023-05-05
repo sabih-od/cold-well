@@ -74,7 +74,7 @@
                                 <input type="file" name="home_banner_image"
                                        class="img-upload @error('home_banner_image') is-invalid @enderror"
                                        id="image-upload"
-                                       value="">
+                                       value="{{($home->getMedia('home_image'))}}">
                             </div>
                             @error('home_banner_image')
                             <div class="alert alert-danger">{{ $message }}</div>

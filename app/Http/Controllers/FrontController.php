@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Additional;
+use App\Models\Admin\Blog;
+use App\Models\Admin\Lesson;
 use App\Models\Admin\Page;
 use App\Models\Admin\Service;
 use App\Models\Reviews;
@@ -221,16 +224,53 @@ class FrontController extends Controller
 
     public function dailyBibleStudyQuestions (Request $request)
     {
-        return view('front.pages.daily-bible-study-questions');
+
+        $posts = Blog::all();
+        $blog = Page::where('name', 'Blog')->first();
+        if ($blog) {
+            $data = json_encode($blog->content);
+            isset($blog) ? $blog->getMedia('blog_banner_image') : '';
+//            isset($about) ? $about->getMedia('mission_image') : '';
+//            isset($about) ? $about->getMedia('mission_section_image') : '';
+            return view('front.pages.daily-bible-study-questions', compact('data', 'blog', 'posts'));
+        } else {
+//            return view('front.pages.daily-bible-study-questions');
+            return view('front.pages.daily-bible-study-questions', compact('blog'));
+        }
+
+//        return view('front.pages.daily-bible-study-questions');
     }
 
     public function lessonsLearnnedOnDaddysLap (Request $request)
     {
-        return view('front.pages.lessons-learnned-on-daddys-lap');
+        $lessons = Lesson::all();
+        $additionals = Additional::all();
+        $lesson = Page::where('name', 'Lesson')->first();
+        if ($lesson) {
+            $data = json_encode($lesson->content);
+            isset($lesson) ? $lesson->getMedia('lesson_banner_image') : '';
+//            isset($about) ? $about->getMedia('mission_image') : '';
+//            isset($about) ? $about->getMedia('mission_section_image') : '';
+            return view('front.pages.lessons-learnned-on-daddys-lap', compact('data', 'lesson', 'lessons', 'additionals'));
+        } else {
+//            return view('front.pages.daily-bible-study-questions');
+            return view('front.pages.lessons-learnned-on-daddys-lap', compact('lesson'));
+        }
+//
+//        return view('front.pages.lessons-learnned-on-daddys-lap');
     }
 
     public function outsideResources (Request $request)
     {
-        return view('front.pages.outside-resources');
+        $resource = Page::where('name', 'Resource')->first();
+        if ($resource) {
+            $data = json_encode($resource->content);
+            isset($resource) ? $resource->getMedia('banner_image') : '';
+            return view('front.pages.outside-resources', compact('data', 'resource'));
+        } else {
+//            return view('front.pages.daily-bible-study-questions');
+            return view('front.pages.outside-resources', compact('resource'));
+        }
+
     }
 }
