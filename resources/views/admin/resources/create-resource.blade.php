@@ -39,7 +39,7 @@
                     </div>
                     <h4 class="h4 text-blue my-4">Main Banner Section</h4>
                     <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">Resource Title</label>
+                        <label class="col-sm-12 col-md-2 col-form-label">Resources Title</label>
                         <div class="col-sm-12 col-md-10">
                             <input class="form-control @error('resource_title') is-invalid @enderror"
                                    name="resource_title"
