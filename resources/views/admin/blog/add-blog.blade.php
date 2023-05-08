@@ -25,10 +25,7 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">Image</label>
                         <div class="img-upload ml-3">
-                            <div id="image-preview" class="img-preview"
-                                 style="background:url({{ !empty($blog->getMedia('blog_image')->first())
-                        ? $blog->getMedia('blog_image')->first()->getUrl()
-                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png' }})">
+                            <div id="image-preview" class="img-preview">
                                 <label for="image-upload" class="img-label"
                                        id="image-label">{{ __('Blog Image') }}</label>
                                 <input type="file" name="add_blog_image" class="img-upload" id="image-upload">
