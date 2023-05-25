@@ -8,7 +8,9 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\PHPCustomMail;
 
 class LoginController extends Controller
 {
@@ -23,7 +25,8 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+
+    use AuthenticatesUsers ,PHPCustomMail;
 
     /**
      * Where to redirect users after login.
@@ -39,7 +42,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout', 'login');
+        $this->middleware('guest')->except(['logout']);
     }
 
     /**
@@ -47,27 +50,64 @@ class LoginController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function login(Request $request)
+    public function customLogin(Request $request)
     {
+//        dd("IN");
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
 
+        $user = User::where('email', $request->email)->first();
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $credentials = $request->only('email', 'password');
+//        dd($request);
 
-        if (Auth::attempt($credentials)) {
-            if ($request->email == "admin@gmail.com") {
-                return redirect()->route('dashboard.home');
-            } else {
-                return redirect()->route('customer.account');
-            }
+//        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+//            dd("IN");
+            return view('front.pages.index');
+        } else {
+            // Authentication failed
+            return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
         }
-
-        return redirect()->back()->with("error", "These credentials doesn't match our record.")->withInput();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
+//    public function forgetPassword(Request $request)
+//    {
+//        $this->validate($request, [
+//            'password' => 'required|min:6|confirmed',
+//        ]);
+//    }
+
+    public function resetPasswordEmail(Request $request)
+    {
+        return view('auth.passwords.email');
+    }
+
+    public function verficationEmail(Request $request)
+    {
+
+        $data = $request->all();
+
+        $to = $data['email'];
+        $from = "no-reply@coldwellservice.com";
+        $subject = "Verfication Email";
+        $message = "Verification Code: ";
+
+        $this->customMail($from, $to, $subject, $message);
+
+    }
+
+
 }
