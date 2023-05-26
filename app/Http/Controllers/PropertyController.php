@@ -37,11 +37,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Property();
-
-        $input = $request->all();
-
-        $validator = Validator::make($request->all(), [
+        $input = $request->validate([
             'property_name' => 'required',
             'contact_email' => 'required|email',
             'contact_phone_number' => 'required',
@@ -50,35 +46,40 @@ class PropertyController extends Controller
             'total_bedrooms' => 'required',
             'total_bathrooms' => 'required',
             'total_sq_feet' => 'required',
-            'property_image' => 'required',
+            'price' => 'required',
+            'property_image' => 'required|array|max:6|min:1',
+            'property_image.*' => 'image',
             'property_description' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
+        $property = new Property();
 
         if ($request->hasFile('property_image')) {
-            $profileImage = time() . '_' . $request['property_image']->getClientOriginalName();
-            $request['property_image']->move(public_path() . '/images/properties/', $profileImage);
-            // Update the user's image field
-            $input['property_image'] = $profileImage;
-
+            foreach ($input['property_image'] as $img) {
+                $property->addMedia($img)->toMediaCollection('images');
+            }
         }
 
         $input['user_id'] = Auth::user()->id;
 
-        $data->fill($input)->save();
+        unset($input['property_image']);
+
+        $property->fill($input)->save();
 
         return redirect()->route('sellYourHome')->with('success', __('Property Listed Successfully.'));
     }
 
     public function propertyDetail($id)
     {
-        $property = Property::where('id', $id)->first();
-
-        return view('front.pages.property-detail', compact('property'));
+        $property = Property::where('id', $id)->with('user')->first();
+        $similar_properties = Property::where('id', '<>', $property->id)
+            ->where(function ($query) use ($property) {
+                $query->where('total_bedrooms', $property->total_bedrooms)
+                    ->orWhere('total_bathrooms', $property->total_bathrooms)
+                    ->orWhere('total_sq_feet', $property->total_sq_feet);
+            })->get();
+//        dd($similar_properties);
+        return view('front.pages.property-detail', compact('property', 'similar_properties'));
 
     }
 

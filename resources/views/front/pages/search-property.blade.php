@@ -6,7 +6,7 @@
     </div>
     <div class="preLoader white"></div> -->
 
-{{--    @dd($properties);--}}
+    {{--    @dd($properties);--}}
 
 
     <section class="pagetitle">
@@ -26,8 +26,9 @@
                 <form class="searchProperty">
                     <div class="search-group">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" class="form-control" placeholder="Search here" name="search" value="{{ request()->get('search') }}">
-{{--                        <input type="text" class="form-control" placeholder="Search here" name="search" >--}}
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search here" name="search"
+                               value="{{ request()->get('search') }}">
+                        {{--                        <input type="text" class="form-control" placeholder="Search here" name="search" >--}}
                     </div>
                     <select name="total_bedrooms" value="Beds" id="totalBedrooms" class="form-control">
                         <option selected disabled>bed</option>
@@ -49,7 +50,8 @@
                         <option value="">Price Range</option>
                     </select>
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-sliders-h"></i> More Filters
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -132,11 +134,13 @@
                                         <span class="badge badge-primary">Feature</span>
                                         <span class="badge badge-secondary">For Rent</span>
                                     </div>
-                                    <img src="images/feature1.jpeg" alt="">
+                                    <img
+                                        src="{{$property->hasMedia('images') ? $property->getFirstMedia('images')->getUrl() : asset('images/single-property-01.jpg')}}"
+                                        alt="">
                                     <div class="card-footer">
                                         <a href="#" class="p">{{ $property->property_address ?? '' }}</a>
                                         <a href="#" class="h5 m-0">{{ $property->property_name ?? '' }}</a>
-                                        <p class="price"><b>$550</b> / month</p>
+                                        <p class="price"><b>$ {{ $property->price ?? '' }}</b> / month</p>
                                         <div class="featureOption">
                                             <span><i
                                                     class="fas fa-bed"></i> {{ $property->total_bedrooms ?? ''}} Br</span>

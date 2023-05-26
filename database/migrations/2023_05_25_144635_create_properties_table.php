@@ -24,6 +24,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('total_bedrooms')->nullable();
             $table->integer('total_bathrooms')->nullable();
             $table->string('total_sq_feet')->nullable();
+            $table->string('price')->nullable();
             $table->string('property_image')->nullable();
             $table->string('property_description')->nullable();
             $table->timestamps();

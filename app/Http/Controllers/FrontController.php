@@ -28,22 +28,25 @@ class FrontController extends Controller
      */
     public function home()
     {
-        $reviews = Reviews::get();
-        $page = Page::where('name', 'Our Services')->first();
-        $home = Page::where('name', 'Home')->first();
-        if ($home) {
-            $data = json_encode($home->content);
-            $count = isset($home) ? $home->getMedia('home_image')->count() : '';
-            isset($home) ? $home->getMedia('about_image') : '';
-            isset($home) ? $home->getMedia('about_section_image') : '';
-            isset($home) ? $home->getMedia('service_image') : '';
-            isset($page) ? $page->getMedia('service_banner_image_one') : '';
-            isset($page) ? $page->getMedia('service_banner_image_two') : '';
-            isset($page) ? $page->getMedia('service_banner_image_three') : '';
-            return view('front.pages.index', compact('data', 'home', 'count', 'page', 'reviews'));
-        } else {
-            return view('front.pages.index', compact('home', 'page', 'reviews'));
-        }
+//        $reviews = Reviews::get();
+//        $page = Page::where('name', 'Our Services')->first();
+//        $home = Page::where('name', 'Home')->first();
+//        if ($home) {
+//            $data = json_encode($home->content);
+//            $count = isset($home) ? $home->getMedia('home_image')->count() : '';
+//            isset($home) ? $home->getMedia('about_image') : '';
+//            isset($home) ? $home->getMedia('about_section_image') : '';
+//            isset($home) ? $home->getMedia('service_image') : '';
+//            isset($page) ? $page->getMedia('service_banner_image_one') : '';
+//            isset($page) ? $page->getMedia('service_banner_image_two') : '';
+//            isset($page) ? $page->getMedia('service_banner_image_three') : '';
+//            return view('front.pages.index', compact('data', 'home', 'count', 'page', 'reviews'));
+//        } else {
+//            return view('front.pages.index', compact('home', 'page', 'reviews'));
+//        }
+
+                    return view('front.pages.index');
+
     }
 
     public function filter(Request $request)

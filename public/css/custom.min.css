@@ -30,6 +30,19 @@ body {
     }
 }
 
+.success-alert{
+    position: absolute;
+    top: 20%;
+    right: 4%;
+}
+.success-alert-index
+{
+    position: absolute;
+    top: -10%;
+    right: 3%;
+
+}
+
 
 /* How to add New font */
 

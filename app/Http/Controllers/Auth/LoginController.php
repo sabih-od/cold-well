@@ -70,7 +70,7 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 //            dd("IN");
-            return view('front.pages.index');
+            return redirect()->route('home')->with('success', __('Login Successfull.'));
         } else {
             // Authentication failed
             return redirect()->back()->withErrors(['email' => 'Invalid credentials']);

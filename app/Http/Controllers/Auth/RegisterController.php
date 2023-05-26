@@ -97,7 +97,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return view('front.pages.index');
+        return redirect()->route('home')->with('success', __('Account Created Successfully.'));
     }
 
 }
