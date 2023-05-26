@@ -165,10 +165,30 @@ class FrontController extends Controller
     public function properties(Request $request)
     {
 
-        $authUser = Auth::user()->id;
+        $properties = Property::query();
+        $filters = $request->all();
 
-        $properties = Property::orderByDesc('id')->get();
+        if (count($filters) > 0) {
+            if (isset($filters['search'])) {
+                $search = $filters['search'];
+                $properties->where('property_name', 'LIKE', "%$search%");
+//                $properties->where('property_name', $search);
+            }
 
+            if (isset($filters['total_bedrooms'])) {
+                $bed_rooms = $filters['total_bedrooms'];
+//                $properties->where('total_bedrooms', 'LIKE', "%$bed_rooms%");
+                $properties->where('total_bedrooms', intval($bed_rooms));
+            }
+
+            if (isset($filters['total_bathrooms'])) {
+                $bath_rooms = $filters['total_bathrooms'];
+//                $properties->where('total_bathrooms', 'LIKE', "%$bath_rooms%");
+                $properties->where('total_bathrooms', intval($bath_rooms));
+            }
+
+        }
+        $properties = $properties->orderBy('id', 'desc')->get();
 
         return view('front.pages.properties', compact('properties'));
     }
