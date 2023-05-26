@@ -195,7 +195,7 @@
 <script src="{{ asset('js/aos.js') }}"></script>
 <script src="{{ asset('js/gsap.js') }}"></script>
 <script src="{{ asset('js/scrollTrigger.js') }}"></script>
-{{--<script src="{{ asset('js/custom.min.js') }}"></script>--}}
+<script src="{{ asset('js/custom.min.js') }}"></script>
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
 
 
