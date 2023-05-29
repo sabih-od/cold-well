@@ -8,10 +8,8 @@
     <section class="main-slider p-0" id="mainSlider" style="position: relative">
 
 
-
-
         @if(session()->has('success'))
-{{--            @dd(session('success'));--}}
+            {{--            @dd(session('success'));--}}
             <div class="alert alert-success success-alert-index" role="alert">
                 {{ session('success') }}
 
@@ -163,70 +161,75 @@
             </div>
             <div class="swiper featureproduct mt-4">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                            </div>
-                            <img src="images/feature1.jpeg" alt="">
-                            <a href="#" class="card-footer">
-                                <div>
-                                    <h4>House In Foxhall Ave, Kingston</h4>
-                                    <p><b>$550</b> / month</p>
+                    @foreach($properties as $property)
+                        <div class="swiper-slide">
+                            <div class="card"
+                                 onclick="window.location.href = '{{ route('propertyDetail' , $property->id )}}'">
+                                <div class="card-header">
+                                    <span class="badge badge-primary">Feature</span>
+                                    <span class="badge badge-secondary">For Rent</span>
                                 </div>
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
+                                <img
+                                    src="{{$property->hasMedia('images') ? $property->getFirstMedia('images')->getUrl() : asset('images/single-property-01.jpg')}}"
+                                    alt="">
+                                <a href="#" class="card-footer">
+                                    <div>
+                                        <h4>{{ $property->property_address ?? '' }}</h4>
+                                        <p><b>$ {{$property->price ?? ''}}</b> / month</p>
+                                    </div>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </a>
                             </div>
-                            <img src="images/feature2.jpeg" alt="">
-                            <a href="#" class="card-footer">
-                                <div>
-                                    <h4>House In Foxhall Ave, Kingston</h4>
-                                    <p><b>$550</b> / month</p>
-                                </div>
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                            </div>
-                            <img src="images/feature3.jpeg" alt="">
-                            <a href="#" class="card-footer">
-                                <div>
-                                    <h4>House In Foxhall Ave, Kingston</h4>
-                                    <p><b>$550</b> / month</p>
-                                </div>
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                            </div>
-                            <img src="images/feature4.jpeg" alt="">
-                            <a href="#" class="card-footer">
-                                <div>
-                                    <h4>House In Foxhall Ave, Kingston</h4>
-                                    <p><b>$550</b> / month</p>
-                                </div>
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/feature2.jpeg" alt="">--}}
+                    {{--                            <a href="#" class="card-footer">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4>House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p><b>$550</b> / month</p>--}}
+                    {{--                                </div>--}}
+                    {{--                                <i class="fa-solid fa-angle-right"></i>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/feature3.jpeg" alt="">--}}
+                    {{--                            <a href="#" class="card-footer">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4>House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p><b>$550</b> / month</p>--}}
+                    {{--                                </div>--}}
+                    {{--                                <i class="fa-solid fa-angle-right"></i>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/feature4.jpeg" alt="">--}}
+                    {{--                            <a href="#" class="card-footer">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4>House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p><b>$550</b> / month</p>--}}
+                    {{--                                </div>--}}
+                    {{--                                <i class="fa-solid fa-angle-right"></i>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -330,7 +333,7 @@
     </section>
     <!-- ! Showcase Section -->
 
-
+    {{--@dd($properties);--}}
     <!-- Feature Section -->
     <section class="property-section">
         <div class="container">
@@ -341,121 +344,127 @@
                     <p>Lorem dolor sit amet, disse suscipit sagittis leo sitea.</p>
                 </div>
                 <div class="col-lg-2 text-right">
-                    <a href="#" class="btn btn-light">See all properties</a>
+                    <a href="{{route('properties')}}" class="btn btn-light">See all properties</a>
                 </div>
             </div>
             <div class="swiper propertyproduct mt-4">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                                <span class="badge badge-grey">Hot offer</span>
-                            </div>
-                            <img src="images/asset 27.jpeg" alt="">
-                            <div class="card-body">
-                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>
-                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>
-                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>
-                            </div>
-                            <a href="#" class="card-footer px-0">
-                                <div>
-                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>
-                                    <p class="m-0">month</p>
-                                    <p class="m-0"><b>$550</b></p>
+                    @foreach($properties as $property)
+                        <div class="swiper-slide">
+                            <div class="card"
+                                 onclick="window.location.href = '{{ route('propertyDetail' , $property->id )}}'">
+                                <div class="card-header">
+                                    <span class="badge badge-primary">Feature</span>
+                                    <span class="badge badge-secondary">For Rent</span>
+                                    <span class="badge badge-grey">Hot offer</span>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                                <span class="badge badge-grey">Hot offer</span>
-                            </div>
-                            <img src="images/asset 28.jpeg" alt="">
-                            <div class="card-body">
-                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>
-                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>
-                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>
-                            </div>
-                            <a href="#" class="card-footer px-0">
-                                <div>
-                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>
-                                    <p class="m-0">month</p>
-                                    <p class="m-0"><b>$550</b></p>
+                                <img
+                                    src="{{$property->hasMedia('images') ? $property->getFirstMedia('images')->getUrl() : asset('images/single-property-01.jpg')}}"
+                                    alt="">
+                                <div class="card-body">
+                            <span><i
+                                    class="fas fa-bed"></i> {{ $property->total_bedrooms ?? ''}} Br</span>
+                                    <span><i class="fas fa-shower"></i> {{ $property->total_bathrooms ?? ''}} Ba</span>
+                                    <span><i class="fas fa-table"></i> {{ $property->total_sq_feet ?? ''}} SqFt</span>
                                 </div>
-                            </a>
+                                <a href="#" class="card-footer px-0">
+                                    <div>
+                                        <h4 class="m-0">{{ $property->property_address ?? '' }}</h4>
+                                        <p class="m-0">month</p>
+                                        <p class="m-0"><b>$ {{ $property->price ?? '' }}</b></p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                                <span class="badge badge-grey">Hot offer</span>
-                            </div>
-                            <img src="images/asset 29.jpeg" alt="">
-                            <div class="card-body">
-                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>
-                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>
-                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>
-                            </div>
-                            <a href="#" class="card-footer px-0">
-                                <div>
-                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>
-                                    <p class="m-0">month</p>
-                                    <p class="m-0"><b>$550</b></p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                                <span class="badge badge-grey">Hot offer</span>
-                            </div>
-                            <img src="images/asset 30.jpeg" alt="">
-                            <div class="card-body">
-                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>
-                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>
-                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>
-                            </div>
-                            <a href="#" class="card-footer px-0">
-                                <div>
-                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>
-                                    <p class="m-0">month</p>
-                                    <p class="m-0"><b>$550</b></p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="badge badge-primary">Feature</span>
-                                <span class="badge badge-secondary">For Rent</span>
-                                <span class="badge badge-grey">Hot offer</span>
-                            </div>
-                            <img src="images/asset 31.jpeg" alt="">
-                            <div class="card-body">
-                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>
-                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>
-                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>
-                            </div>
-                            <a href="#" class="card-footer px-0">
-                                <div>
-                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>
-                                    <p class="m-0">month</p>
-                                    <p class="m-0"><b>$550</b></p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                                <span class="badge badge-grey">Hot offer</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/asset 28.jpeg" alt="">--}}
+                    {{--                            <div class="card-body">--}}
+                    {{--                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>--}}
+                    {{--                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>--}}
+                    {{--                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <a href="#" class="card-footer px-0">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p class="m-0">month</p>--}}
+                    {{--                                    <p class="m-0"><b>$550</b></p>--}}
+                    {{--                                </div>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                                <span class="badge badge-grey">Hot offer</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/asset 29.jpeg" alt="">--}}
+                    {{--                            <div class="card-body">--}}
+                    {{--                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>--}}
+                    {{--                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>--}}
+                    {{--                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <a href="#" class="card-footer px-0">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p class="m-0">month</p>--}}
+                    {{--                                    <p class="m-0"><b>$550</b></p>--}}
+                    {{--                                </div>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                                <span class="badge badge-grey">Hot offer</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/asset 30.jpeg" alt="">--}}
+                    {{--                            <div class="card-body">--}}
+                    {{--                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>--}}
+                    {{--                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>--}}
+                    {{--                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <a href="#" class="card-footer px-0">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p class="m-0">month</p>--}}
+                    {{--                                    <p class="m-0"><b>$550</b></p>--}}
+                    {{--                                </div>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="swiper-slide">--}}
+                    {{--                        <div class="card">--}}
+                    {{--                            <div class="card-header">--}}
+                    {{--                                <span class="badge badge-primary">Feature</span>--}}
+                    {{--                                <span class="badge badge-secondary">For Rent</span>--}}
+                    {{--                                <span class="badge badge-grey">Hot offer</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <img src="images/asset 31.jpeg" alt="">--}}
+                    {{--                            <div class="card-body">--}}
+                    {{--                                <span><i class="fa-solid fa-bed"></i> 3 Br</span>--}}
+                    {{--                                <span><i class="fa-solid fa-shower"></i> 2 Ba</span>--}}
+                    {{--                                <span><i class="fa-solid fa-table"></i> 900 SqFt</span>--}}
+                    {{--                            </div>--}}
+                    {{--                            <a href="#" class="card-footer px-0">--}}
+                    {{--                                <div>--}}
+                    {{--                                    <h4 class="m-0">House In Foxhall Ave, Kingston</h4>--}}
+                    {{--                                    <p class="m-0">month</p>--}}
+                    {{--                                    <p class="m-0"><b>$550</b></p>--}}
+                    {{--                                </div>--}}
+                    {{--                            </a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
             <!-- <div class="swiper-button-prev swiper-button-prev2"></div>
@@ -473,7 +482,7 @@
                     <h2 class="heading text-white">COMMUNITIES SERVED</h2>
                 </div>
                 <div class="col-lg-2 text-right">
-                    <a href="#" class="btn btn-outline-light px-4">See all properties</a>
+                    <a href="{{route('properties')}}" class="btn btn-outline-light px-4">See all properties</a>
                 </div>
             </div>
             <div class="swiper propertyproduct mt-5">
