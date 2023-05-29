@@ -254,42 +254,7 @@
         });
 
 
-        // Gallery Section Insert
 
-        $(document).on('click', '.remove-img', function () {
-            var id = $(this).find('input[type=hidden]').val();
-            $('#galval' + id).remove();
-            $(this).parent().parent().remove();
-        });
-
-        $(document).on('click', '#prod_gallery', function () {
-            console.log('ijasd');
-            $('#uploadgallery').click();
-            $('.selected-image .row').html('');
-            $('#geniusform').find('.removegal').val(0);
-        });
-
-
-        $("#uploadgallery").change(function () {
-            var total_file = document.getElementById("uploadgallery").files.length;
-            for (var i = 0; i < total_file; i++) {
-                $('.selected-image .row').append('<div class="col-sm-6">' +
-                    '<div class="img gallery-img">' +
-                    '<span class="remove-img"><i class="fas fa-times"></i>' +
-                    '<input type="hidden" value="' + i + '">' +
-                    '</span>' +
-                    '<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
-                    '<img class = "img-fluid"src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
-                    '</a>' +
-                    '</div>' +
-                    '</div> '
-                );
-                $('#geniusform').append('<input type="hidden" name="galval[]" id="galval' + i + '" class="removegal" value="' + i + '">')
-            }
-
-        });
-
-        // Gallery Section Insert Ends
 
     </script>
 

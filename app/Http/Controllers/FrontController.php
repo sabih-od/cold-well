@@ -45,7 +45,9 @@ class FrontController extends Controller
 //            return view('front.pages.index', compact('home', 'page', 'reviews'));
 //        }
 
-                    return view('front.pages.index');
+        $properties = Property::orderBy('id', 'desc')->get();
+
+        return view('front.pages.index', compact('properties'));
 
     }
 
@@ -125,7 +127,7 @@ class FrontController extends Controller
         return view('front.pages.search-property', compact('properties'));
     }
 
-    public function clearFilter(Request  $request)
+    public function clearFilter(Request $request)
     {
         $properties = Property::query();
         $filters = $request->all();
