@@ -90,7 +90,8 @@
                             <div class="col-md-4 mb-4">
                                 <label for="">Beds *</label>
                                 <select name="total_bedrooms" id=""
-                                        class="form-control @error('total_bedrooms') is-invalid @enderror" value="{{ old('property_name') }}">
+                                        class="form-control @error('total_bedrooms') is-invalid @enderror"
+                                        value="{{ old('property_name') }}">
                                     <option value=""></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -107,7 +108,8 @@
                             <div class="col-md-4 mb-4">
                                 <label for="">Baths</label>
                                 <select name="total_bathrooms" id=""
-                                        class="form-control @error('total_bathrooms') is-invalid @enderror" value="{{ old('property_name') }}">
+                                        class="form-control @error('total_bathrooms') is-invalid @enderror"
+                                        value="{{ old('property_name') }}">
                                     <option value=""></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -144,15 +146,24 @@
                             </div>
 
 
-
                             <div class="col-md-12 mb-4">
                                 <label for="">Upload An Image *</label>
                                 <div class="dropbox" id="imageContainer"
-                                     onclick="document.getElementById('myFileInput').click()">
-                                    <input type="file" id="myFileInput" multiple name="property_image[]" class="form-control @error('property_image') is-invalid @enderror">
-                                    <img src="images/icons/uploadicon.png" alt="">
-                                    <p class="bold">Upload An Image</p>
-                                    <p>Drag and drop image here</p>
+                                >
+                                    <div class="selected-image">
+                                        <div class="row">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center flex-column"
+                                         onclick="document.getElementById('myFileInput').click()">
+                                        <input type="file" id="myFileInput" multiple name="property_image[]"
+                                               class="form-control @error('property_image') is-invalid @enderror">
+
+                                        <img id="upload_img_icon" src="images/icons/uploadicon.png" alt="">
+                                        <p id="upload_img_text" class="bold">Upload An Image</p>
+                                    </div>
                                     @error('property_image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -161,6 +172,7 @@
                                 </div>
                                 {{--                                <div id="imagePreview"></div>--}}
                             </div>
+
 
                             <div class="col-md-12 mb-4">
                                 <label for="">Description</label>
@@ -181,7 +193,6 @@
                 </div>
             </div>
         </div>
-
 
 
         <div class="modal fade" id="setgallery" tabindex="-1" role="dialog" aria-labelledby="setgallery"
@@ -212,14 +223,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="gallery-images">
-                            <div class="selected-image">
-                                <div class="row">
+                        {{--                        <div class="gallery-images">--}}
+                        {{--                            <div class="selected-image">--}}
+                        {{--                                <div class="row">--}}
 
 
-                                </div>
-                            </div>
-                        </div>
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -230,19 +241,78 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#myFileInput').change(function (e) {
-                var file = e.target.files[0];
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#imageContainer img').attr('src', e.target.result);
-                    $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview Image">');
+        (function ($) {
+            "use strict";
+            $("#myFileInput").change(function () {
+                var total_file = document.getElementById("myFileInput").files.length;
+                console.log("files", total_file);
+                console.log("_files", document.getElementById("myFileInput").files)
+                for (var i = 0; i < total_file; i++) {
+                    var imageId = Date.now(); // Generate a unique ID for each image
+                    var imageHTML = '<div class="col-sm-6" id="' + imageId + '">' +
+                        '<div class="img gallery-img" style="z-index: 99999 !important;">' +
+                        '<span class="remove-img"><i class="fas fa-times"></i>' +
+                        '<input type="hidden" value="' + imageId + '" data-name="' + event.target.files[i].name + '" data-index="' + i + '">' +
+                        '</span>' +
+                        '<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+                        '<img class="img-fluid" src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+                        '</a>' +
+                        '</div>' +
+                        '</div>';
+                    $('.selected-image .row').append(imageHTML);
+                    $('#geniusform').append('<input type="hidden" name="galval[]" id="galval' + imageId + '" class="removegal" value="' + imageId + '">');
                 }
 
-                reader.readAsDataURL(file);
+                // if (total_file > 0) {
+                //     $('#upload_img_icon').css('display', 'none');
+                //     $('#upload_img_text').css('display', 'none');
+                // } else {
+                //     $('#upload_img_icon').css('display', 'block');
+                //     $('#upload_img_text').css('display', 'block');
+                // }
             });
-        });
+
+            $(document).on('click', '.remove-img', function (e) {
+                // e.stopPropagation();
+                // e.preventDefault();
+
+                let id = $(this).find('input[type=hidden]').val()
+
+                let input = $('#myFileInput')[0];
+
+                console.log("files" , input);
+
+                    const dt = new DataTransfer()
+
+                    for (let file of input.files)
+                        if (file !== input.files[0])
+                            dt.items.add(file)
+
+                    input.onchange = null // remove event listener
+                    console.log("Dt files" , dt.files);
+                    input.files = dt.files // this will trigger a change event
+
+                $('#galval' + id).remove();
+
+                $('#' + id).remove();
+            });
+        })(jQuery);
+
+
+        // $(document).ready(function () {
+        //     $('#myFileInput').change(function (e) {
+        //         var file = e.target.files[0];
+        //         var reader = new FileReader();
+        //
+        //         reader.onload = function (e) {
+        //             $('#imageContainer img').attr('src', e.target.result);
+        //             $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview Image">');
+        //         }
+        //
+        //         reader.readAsDataURL(file);
+        //     });
+        // });
 
 
         // Wait for the document to be ready
@@ -252,8 +322,6 @@
                 $('.success-alert').fadeOut('slow');
             }, 5000); // 10000 milliseconds = 10 seconds
         });
-
-
 
 
     </script>
