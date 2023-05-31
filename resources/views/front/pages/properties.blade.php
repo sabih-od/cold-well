@@ -46,70 +46,76 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    <select name="" id="" class="form-control select2">
-                        <option value="">Price Range</option>
-                    </select>
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-sliders-h"></i> More Filters
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <label>Square Feet</label>
-                            <div class="d-flex align-items-center">
-                                <select name="" id="" class="form-control">
-                                    <option value="">Any Beds</option>
-                                </select>
-                                <span>to</span>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Any Beds</option>
-                                </select>
-                            </div>
-                            <label>Lot Size</label>
-                            <div class="d-flex align-items-center">
-                                <select name="" id="" class="form-control">
-                                    <option value="">Any Beds</option>
-                                </select>
-                                <span>to</span>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Any Beds</option>
-                                </select>
-                            </div>
-                            <label>Status</label>
-                            <div class="d-flex align-items-start">
-                                <label for="active">
-                                    <input type="checkbox" checked id="active"> Active
-                                </label>
-                                <label for="pending">
-                                    <input type="checkbox" id="pending"> Pending/Under Contract
-                                </label>
-                            </div>
-                            <label>Property Type</label>
-
-                            <div class="d-flex">
-                                <label for="single">
-                                    <input type="checkbox" checked id="single"> Single Family
-                                </label>
-                                <label for="Condo">
-                                    <input type="checkbox" id="Condo"> Condo/Townhouse
-                                </label>
-                                <label for="multi">
-                                    <input type="checkbox" id="multi"> Multi Family
-                                </label>
-                                <label for="land">
-                                    <input type="checkbox" id="land"> Land
-                                </label>
-                            </div>
-                            <div>
-                                <button type="button" class="btn themeBtn btn1">View Advanced Filters</button>
-                            </div>
-                            <div class="d-flex">
-                                <button type="button" class="btn themeBtn">Reset Filters</button>
-                                <button type="button" class="btn themeBtn btn3">View Listings</button>
-
-                            </div>
-                        </div>
+                    <div class="search-group" style="width: 200px !important;">
+                        <i class="fas fa-dollar"></i>
+                        <input style="min-width: 165px !important;" type="text" id="price_range_field" class="form-control" placeholder="Search here"
+                               name="price_range"
+                               value="{{ request()->get('price_range') }}">
                     </div>
+{{--                    <select name="price_range" id="" class="form-control select2">--}}
+{{--                        <option value="">Price Range</option>--}}
+{{--                    </select>--}}
+{{--                    <div class="dropdown">--}}
+{{--                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"--}}
+{{--                                aria-haspopup="true" aria-expanded="false">--}}
+{{--                            <i class="fas fa-sliders-h"></i> More Filters--}}
+{{--                        </button>--}}
+{{--                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
+{{--                            <label>Square Feet</label>--}}
+{{--                            <div class="d-flex align-items-center">--}}
+{{--                                <select name="" id="" class="form-control">--}}
+{{--                                    <option value="">Any Beds</option>--}}
+{{--                                </select>--}}
+{{--                                <span>to</span>--}}
+{{--                                <select name="" id="" class="form-control">--}}
+{{--                                    <option value="">Any Beds</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                            <label>Lot Size</label>--}}
+{{--                            <div class="d-flex align-items-center">--}}
+{{--                                <select name="" id="" class="form-control">--}}
+{{--                                    <option value="">Any Beds</option>--}}
+{{--                                </select>--}}
+{{--                                <span>to</span>--}}
+{{--                                <select name="" id="" class="form-control">--}}
+{{--                                    <option value="">Any Beds</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                            <label>Status</label>--}}
+{{--                            <div class="d-flex align-items-start">--}}
+{{--                                <label for="active">--}}
+{{--                                    <input type="checkbox" checked id="active"> Active--}}
+{{--                                </label>--}}
+{{--                                <label for="pending">--}}
+{{--                                    <input type="checkbox" id="pending"> Pending/Under Contract--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
+{{--                            <label>Property Type</label>--}}
+
+{{--                            <div class="d-flex">--}}
+{{--                                <label for="single">--}}
+{{--                                    <input type="checkbox" checked id="single"> Single Family--}}
+{{--                                </label>--}}
+{{--                                <label for="Condo">--}}
+{{--                                    <input type="checkbox" id="Condo"> Condo/Townhouse--}}
+{{--                                </label>--}}
+{{--                                <label for="multi">--}}
+{{--                                    <input type="checkbox" id="multi"> Multi Family--}}
+{{--                                </label>--}}
+{{--                                <label for="land">--}}
+{{--                                    <input type="checkbox" id="land"> Land--}}
+{{--                                </label>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <button type="button" class="btn themeBtn btn1">View Advanced Filters</button>--}}
+{{--                            </div>--}}
+{{--                            <div class="d-flex">--}}
+{{--                                <button type="button" class="btn themeBtn">Reset Filters</button>--}}
+{{--                                <button type="button" class="btn themeBtn btn3">View Listings</button>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="ml-auto">
                         <button class="clear-filter-btn" onclick="clearSearchValue()">Clear Filter</button>
@@ -298,6 +304,7 @@
     <script>
         function clearSearchValue() {
             document.getElementById('searchInput').value = '';
+            document.getElementById('price_range_field').value = '';
             document.getElementById('totalBathdrooms').value = '';
             document.getElementById('totalBeddrooms').value = '';
             location.reload();

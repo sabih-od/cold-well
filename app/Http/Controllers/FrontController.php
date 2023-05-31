@@ -54,7 +54,7 @@ class FrontController extends Controller
     public function filter(Request $request)
     {
         $filters = $request->all();
-        dd($filters);
+        dd($filters , "name FIlter");
         $query = Property::query();
 
         if (isset($filters['search'])) {
@@ -101,9 +101,8 @@ class FrontController extends Controller
         $filters = $request->all();
 //dd($filters );
 
-//        dd($filters);
         if (count($filters) > 0) {
-            if (isset($filters['search'])) {
+             if (isset($filters['search'])) {
                 $search = $filters['search'];
                 $properties->where('property_name', 'LIKE', "%$search%");
 //                $properties->where('property_name', $search);
@@ -119,6 +118,12 @@ class FrontController extends Controller
                 $bath_rooms = $filters['total_bathrooms'];
 //                $properties->where('total_bathrooms', 'LIKE', "%$bath_rooms%");
                 $properties->where('total_bathrooms', intval($bath_rooms));
+            }
+
+            if (isset($filters['price_range'])) {
+                $price_range = $filters['price_range'];
+                $properties->where('price', 'LIKE', "%$price_range%");
+//                $properties->where('price', intval($price_range));
             }
 
         }
@@ -190,6 +195,12 @@ class FrontController extends Controller
                 $bath_rooms = $filters['total_bathrooms'];
 //                $properties->where('total_bathrooms', 'LIKE', "%$bath_rooms%");
                 $properties->where('total_bathrooms', intval($bath_rooms));
+            }
+
+            if (isset($filters['price_range'])) {
+                $price_range = $filters['price_range'];
+                $properties->where('price', 'LIKE', "%$price_range%");
+//                $properties->where('price', intval($price_range));
             }
 
         }
