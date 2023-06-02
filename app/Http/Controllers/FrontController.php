@@ -174,6 +174,12 @@ class FrontController extends Controller
 
     public function properties(Request $request)
     {
+        // Get Media
+//        $propertie = Property::with('media')->get();
+////        dd($propertie);
+//        $count = isset($propertie) ? $propertie->getMedia('add_media_image')->count() : '';
+//        isset($propertie) ? $propertie->getMedia('add_media_image') : '';
+//        dd($count);
 
         $properties = Property::query();
         $filters = $request->all();
@@ -206,7 +212,8 @@ class FrontController extends Controller
         }
         $properties = $properties->orderBy('id', 'desc')->get();
 
-        return view('front.pages.properties', compact('properties'));
+        return view('front.pages.properties',
+            compact('properties', ));
     }
 
     //OLD WORK

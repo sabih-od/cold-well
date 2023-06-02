@@ -43,9 +43,17 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card card-main">
-                            <img
-                                src="{{$property->hasMedia('images') ? $property->getFirstMedia('images')->getUrl() : asset('images/single-property-01.jpg')}}"
-                                alt="">
+{{--                            <img--}}
+{{--                                src="{{$property->hasMedia('property_image') ? $property->getFirstMedia('property_image')->getUrl() : asset('images/single-property-01.jpg')}}"--}}
+{{--                                alt="">--}}
+                            @foreach($property->media as $index => $media)
+                                @break($index > 0)
+                                <img
+                                    src="{{ !empty($media->first())
+                                                                    ? $media->getUrl()
+                                                                    : asset('images/single-property-01.jpg') }}"
+                                    alt="">
+                            @endforeach
                             <div class="options">
                                 <button class="btn"><i class="fas fa-camera"></i></button>
                                 <button class="btn"><i class="fas fa-map-marked-alt"></i></button>
@@ -54,16 +62,28 @@
                     </div>
                     <div class="col-md-4 p-0">
                         <div class="smallGallery ">
-                            @foreach($property->getMedia('images') as $ind =>$img)
-                                @if($ind == 0)
-                                    @continue
-                                @endif
-                                <a href="{{ $img->getUrl() }}" class="smallthumb" data-fancybox="">
-                                    <img src="{{ $img->getUrl() }}" alt="">
-                                </a>
-                            @endforeach
-{{--                            @dd($property->getMedia('images'));--}}
-                            @if(count($property->getMedia('images')) < 2 )
+{{--                            @foreach($property->getMedia('property_image') as $ind =>$img)--}}
+{{--                                @if($ind == 0)--}}
+{{--                                    @continue--}}
+{{--                                @endif--}}
+{{--                                <a href="{{ $img->getUrl() }}" class="smallthumb" data-fancybox="">--}}
+{{--                                    <img src="{{ $img->getUrl() }}" alt="">--}}
+{{--                                </a>--}}
+{{--                            @endforeach--}}
+
+                            @foreach($property->media as $media)
+{{--                                    @if($ == 0)--}}
+{{--                                        @continue--}}
+{{--                                    @endif--}}
+                                    <a href="{{ $media->getUrl() }}" class="smallthumb" data-fancybox="">
+                                        <img src="{{ $media->getUrl() }}" alt="">
+                                    </a>
+                                @endforeach
+                            {{--                            @dd($property->getMedia('images'));--}}
+{{--                            @if(count($property->getMedia('property_image')) < 2 )--}}
+{{--                                <h4>This Property Have No Gallery!!</h4>--}}
+{{--                            @endif  --}}
+                            @if(count($property->media) < 2 )
                                 <h4>This Property Have No Gallery!!</h4>
                             @endif
                         </div>
@@ -624,10 +644,14 @@
                                                         <span class="badge badge-primary">Featured</span>
                                                         <span class="badge badge-secondary">For Sale</span>
                                                     </div>
-                                                    {{--                                                <img src="images/feature1.jpeg" alt="">--}}
-                                                    <img
-                                                        src="{{isset($property->property_image) ? asset('images/properties/'.$property->property_image) : asset('images/single-property-01.jpg')}}"
-                                                        alt="">
+                                                    <!--<img src="images/feature1.jpeg" alt="">-->
+                                                    @foreach($property->media as $media)
+                                                        <img
+                                                            src="{{ !empty($media->getUrl())
+                                                                    ? $media->getUrl()
+                                                                    : asset('images/single-property-01.jpg') }}"
+                                                            alt="">
+                                                    @endforeach
 
                                                     <div class="card-footer">
                                                         <a href="#"
@@ -678,7 +702,7 @@
                     <div id="simple" class="sidebarTop">
                         <div class="sidebar">
                             <figure class="profile">
-                                <img src="images/profile.jpg" alt="">
+                                <img src="{{ asset('images/user.png') }}" alt="">
                             </figure>
                             <div>
                                 <b>{{$property->user->name ?? ''}}</b>
