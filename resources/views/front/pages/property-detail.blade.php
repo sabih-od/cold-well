@@ -780,9 +780,13 @@
                                                             <span class="badge badge-secondary">For Sale</span>
                                                         </div>
                                                         {{--                                                <img src="images/feature1.jpeg" alt="">--}}
-                                                        <img
-                                                            src="{{isset($property->property_image) ? asset('images/properties/'.$property->property_image) : asset('images/single-property-01.jpg')}}"
-                                                            alt="">
+                                                        @foreach($property->media as $media)
+                                                            <img
+                                                                src="{{ !empty($media->getUrl())
+                                                                    ? $media->getUrl()
+                                                                    : asset('images/single-property-01.jpg') }}"
+                                                                alt="">
+                                                        @endforeach
 
                                                         <div class="card-footer">
                                                             <a href="#"
