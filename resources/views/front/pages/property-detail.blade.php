@@ -541,94 +541,94 @@
                     {{--                    </div>--}}
 
 
-                    <div class="bg-white p-4 mb-3 text-details attachments ">
-                        <p class="h5">Rating & Reviews</p>
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <div class="average">
-                                    <h6>Avarage User Rating</h6>
-                                    <span>0 <sup>/ 5</sup></span>
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="ratingContent">
-                                    <h6>Avarage User Rating</h6>
-                                    <ul>
-                                        <li>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="line"></div>
-                                            <span>0%</span>
-                                        </li>
-                                        <li>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <div class="line"></div>
-                                            <span>0%</span>
-                                        </li>
-                                        <li>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <div class="line"></div>
-                                            <span>0%</span>
-                                        </li>
-                                        <li>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <div class="line"></div>
-                                            <span>0%</span>
-                                        </li>
-                                        <li>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <div class="line"></div>
-                                            <span>0%</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="writeContent">
-                                    <h6>Write A Review</h6>
-                                    <p>You must be <a href="#">logged in</a> to post a review</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="bg-white p-4 mb-3 text-details attachments ">--}}
+{{--                        <p class="h5">Rating & Reviews</p>--}}
+{{--                        <div class="row align-items-center">--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                <div class="average">--}}
+{{--                                    <h6>Avarage User Rating</h6>--}}
+{{--                                    <span>0 <sup>/ 5</sup></span>--}}
+{{--                                    <ul>--}}
+{{--                                        <li><a href="#"><i class="fas fa-star"></i></a></li>--}}
+{{--                                        <li><a href="#"><i class="fas fa-star"></i></a></li>--}}
+{{--                                        <li><a href="#"><i class="fas fa-star"></i></a></li>--}}
+{{--                                        <li><a href="#"><i class="fas fa-star"></i></a></li>--}}
+{{--                                        <li><a href="#"><i class="fas fa-star"></i></a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                <div class="ratingContent">--}}
+{{--                                    <h6>Avarage User Rating</h6>--}}
+{{--                                    <ul>--}}
+{{--                                        <li>--}}
+{{--                                            <div class="star">--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="line"></div>--}}
+{{--                                            <span>0%</span>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <div class="star">--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="line"></div>--}}
+{{--                                            <span>0%</span>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <div class="star">--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="line"></div>--}}
+{{--                                            <span>0%</span>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <div class="star">--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="line"></div>--}}
+{{--                                            <span>0%</span>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <div class="star">--}}
+{{--                                                <i class="fas fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                                <i class="far fa-star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="line"></div>--}}
+{{--                                            <span>0%</span>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="writeContent">--}}
+{{--                                    <h6>Write A Review</h6>--}}
+{{--                                    <p>You must be <a href="#">logged in</a> to post a review</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
                     <div class="bg-white p-4 mb-3 text-details attachments ">
@@ -696,7 +696,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-md-4">
                     <div id="simple" class="sidebarTop">
@@ -707,20 +706,20 @@
                             <div>
                                 <b>{{$property->user->name ?? ''}}</b>
                             </div>
-                            <span>Real estate broker</span>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(1 review)</span>
+{{--                            <span>Real estate broker</span>--}}
+{{--                            <div class="rating">--}}
+{{--                                <i class="fas fa-star"></i>--}}
+{{--                                <i class="fas fa-star"></i>--}}
+{{--                                <i class="fas fa-star"></i>--}}
+{{--                                <i class="fas fa-star"></i>--}}
+{{--                                <i class="fas fa-star"></i>--}}
+{{--                                <span>(1 review)</span>--}}
+{{--                            </div>--}}
+                            <div>
+                                <a href="mailto:b.gordon@homeid.com">{{ $property->contact_email ?? '' }}</a>
                             </div>
                             <div>
-                                <a href="mailto:b.gordon@homeid.com">{{ $property->user->email ?? '' }}</a>
-                            </div>
-                            <div>
-                                <a href="tel:+98 0390 909 039"><b>+98 0390 909 039</b></a>
+                                <a href="tel:+98 0390 909 039"><b>{{ $property->contact_phone_number ?? '' }}</b></a>
                             </div>
                             <ul class="socialLink">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -728,13 +727,13 @@
                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             </ul>
-                            <form action="">
-                                <input type="text" class="form-control" placeholder="Full Name *">
-                                <input type="text" class="form-control" placeholder="Phone Number *">
-                                <input type="text" class="form-control" placeholder="Email Address *">
-                                <textarea class="form-control" placeholder="Message *" rows="10"></textarea>
-                                <button class="themeBtn w-100">Send message</button>
-                                <a href="tel:+123456789" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
+                            <form action="{{route('propertyContactEmail')}}">
+                                <input type="text" class="form-control" placeholder="Full Name *" name="full_name">
+                                <input type="text" class="form-control" placeholder="Phone Number *" name="phone_number">
+                                <input type="text" class="form-control" placeholder="Email Address *" name="email_address">
+                                <textarea class="form-control" placeholder="Message *" rows="10" name="message"></textarea>
+                                <button class="themeBtn w-100" type="submit">Send message</button>
+                                <a href="tel:{{$property->user->contact_phone_number ?? '' }}" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
                                     Call</a>
                             </form>
 
