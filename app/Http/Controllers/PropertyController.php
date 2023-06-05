@@ -45,7 +45,7 @@ class PropertyController extends Controller
             'property_name' => 'required|regex:/^(?![\s.\'-])(?!.*[\s.\'-]{2})[A-Za-z\s.\'-]{2,}$/',
             'contact_email' => 'required|email',
             'contact_phone_number' => 'required',
-            'property_address' => 'required|regex:/^(?![\s.\'-])(?!.*[\s.\'-]{2})[A-Za-z\s.\'-]{2,}$/',
+            'property_address' => 'required|regex:/^[A-Za-z0-9]+$/',
             'zip_code' => 'required',
             'total_bedrooms' => 'required',
             'total_bathrooms' => 'required',
