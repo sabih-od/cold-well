@@ -639,7 +639,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             @foreach($similar_properties as $property)
-                                                <div class="card searchcard">
+                                                <div class="card searchcard" onclick="window.location.href = '{{ route('propertyDetail' , $property->id )}}'">
                                                     <div class="card-header">
                                                         <span class="badge badge-primary">Featured</span>
                                                         <span class="badge badge-secondary">For Sale</span>
@@ -773,7 +773,7 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 @foreach($similar_properties as $property)
-                                                    <div class="card searchcard">
+                                                    <div class="card searchcard" onclick="window.location.href = '{{ route('propertyDetail' , $property->id )}}'">
                                                         <div class="card-header">
                                                             <span class="badge badge-primary">Featured</span>
                                                             <span class="badge badge-secondary">For Sale</span>
