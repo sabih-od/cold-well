@@ -715,11 +715,12 @@
 {{--                                <i class="fas fa-star"></i>--}}
 {{--                                <span>(1 review)</span>--}}
 {{--                            </div>--}}
+{{--                            @dd($property)--}}
                             <div>
-                                <a href="mailto:b.gordon@homeid.com">{{ $property->contact_email ?? '' }}</a>
+                                <a>{{ $property->contact_email ?? '' }}</a>
                             </div>
                             <div>
-                                <a href="tel:+98 0390 909 039"><b>{{ $property->contact_phone_number ?? '' }}</b></a>
+                                <a><b>{{ $property->contact_phone_number ?? '' }}</b></a>
                             </div>
                             <ul class="socialLink">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -733,7 +734,7 @@
                                 <input type="text" class="form-control" placeholder="Email Address *" name="email_address">
                                 <textarea class="form-control" placeholder="Message *" rows="10" name="message"></textarea>
                                 <button class="themeBtn w-100" type="submit">Send message</button>
-                                <a href="tel:{{$property->user->contact_phone_number ?? '' }}" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
+                                <a href="tel:{{$property->contact_phone_number ?? '' }}" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
                                     Call</a>
                             </form>
 
