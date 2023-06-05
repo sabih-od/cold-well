@@ -43,7 +43,7 @@ Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/contact-us', [FrontController::class, 'contactUs'])->name('contactUs');
 Route::get('/privacy', [FrontController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [FrontController::class, 'terms'])->name('terms');
-Route::post('/sell-property', [PropertyController::class, 'store'])->name('sellProperty');
+Route::post('/sell-property', [PropertyController::class, 'store'])->name('sellProperty')->middleware('auth');
 Route::get('/property-detail/{id}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
 
 

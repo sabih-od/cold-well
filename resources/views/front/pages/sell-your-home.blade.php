@@ -281,17 +281,17 @@
 
                 let input = $('#myFileInput')[0];
 
-                console.log("files" , input);
+                console.log("files", input);
 
-                    const dt = new DataTransfer()
+                const dt = new DataTransfer()
 
-                    for (let file of input.files)
-                        if (file !== input.files[0])
-                            dt.items.add(file)
+                for (let file of input.files)
+                    if (file !== input.files[0])
+                        dt.items.add(file)
 
-                    input.onchange = null // remove event listener
-                    console.log("Dt files" , dt.files);
-                    input.files = dt.files // this will trigger a change event
+                input.onchange = null // remove event listener
+                console.log("Dt files", dt.files);
+                input.files = dt.files // this will trigger a change event
 
                 $('#galval' + id).remove();
 
