@@ -150,10 +150,10 @@
                                 <label for="">Upload An Images *</label>
                                 <div class="dropbox" id="imageContainer"
                                 >
-                                    <div class="selected-image">
-                                        <div class="row">
-
-
+                                    <div class="selected-image w-100">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center flex-column"
@@ -250,7 +250,7 @@
                 console.log("_files", document.getElementById("myFileInput").files)
                 for (var i = 0; i < total_file; i++) {
                     var imageId = Date.now(); // Generate a unique ID for each image
-                    var imageHTML = '<div class="col-sm-6" id="' + imageId + '">' +
+                    var imageHTML = '<div class="col-md-3" id="' + imageId + '">' +
                         '<div class="img gallery-img" style="z-index: 99999 !important;">' +
                         '<span class="remove-img"><i class="fas fa-times"></i>' +
                         '<input type="hidden" value="' + imageId + '" data-name="' + event.target.files[i].name + '" data-index="' + i + '">' +
