@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\PHPCustomMail;
 use Illuminate\Support\Facades\Validator;
 
 class PropertyController extends Controller
 {
+
+    use PHPCustomMail;
     /**
      * Display a listing of the resource.
      *
@@ -129,5 +132,21 @@ class PropertyController extends Controller
         //
     }
 
+
+    public function propertyContactEmail(Request $request)
+    {
+        $data = $request->all();
+
+        $to = $data['email_address'];
+        $from = "no-reply@coldwellservice.com";
+        $subject = "Property Message";
+        $message = "Message Sender : " . $data['full_name'] . "</br>";
+        $message .= "Message Sender Number : " . $data['phone_number'] . "</br>";
+        $message .= "Message : " . $data['message'] . "</br>";
+
+        $this->customMail($from, $to, $subject, $message);
+
+        return redirect()->back();
+    }
 
 }

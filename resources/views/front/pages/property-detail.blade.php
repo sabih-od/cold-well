@@ -727,12 +727,12 @@
                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             </ul>
-                            <form action="">
-                                <input type="text" class="form-control" placeholder="Full Name *">
-                                <input type="text" class="form-control" placeholder="Phone Number *">
-                                <input type="text" class="form-control" placeholder="Email Address *">
-                                <textarea class="form-control" placeholder="Message *" rows="10"></textarea>
-                                <button class="themeBtn w-100">Send message</button>
+                            <form action="{{route('propertyContactEmail')}}">
+                                <input type="text" class="form-control" placeholder="Full Name *" name="full_name">
+                                <input type="text" class="form-control" placeholder="Phone Number *" name="phone_number">
+                                <input type="text" class="form-control" placeholder="Email Address *" name="email_address">
+                                <textarea class="form-control" placeholder="Message *" rows="10" name="message"></textarea>
+                                <button class="themeBtn w-100" type="submit">Send message</button>
                                 <a href="tel:{{$property->user->contact_phone_number ?? '' }}" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
                                     Call</a>
                             </form>
