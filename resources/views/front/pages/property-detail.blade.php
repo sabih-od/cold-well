@@ -717,10 +717,10 @@
 {{--                            </div>--}}
 {{--                            @dd($property)--}}
                             <div>
-                                <a href="mailto:b.gordon@homeid.com">{{ $property->contact_email ?? '' }}</a>
+                                <a>{{ $property->contact_email ?? '' }}</a>
                             </div>
                             <div>
-                                <a href="tel:+98 0390 909 039"><b>{{ $property->contact_phone_number ?? '' }}</b></a>
+                                <a><b>{{ $property->contact_phone_number ?? '' }}</b></a>
                             </div>
                             <ul class="socialLink">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
