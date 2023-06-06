@@ -245,6 +245,7 @@
         (function ($) {
             "use strict";
             $("#myFileInput").change(function () {
+                $('.selected-image .row').html('');
                 var total_file = document.getElementById("myFileInput").files.length;
                 console.log("files", total_file);
                 console.log("_files", document.getElementById("myFileInput").files)
@@ -271,13 +272,16 @@
                 //     $('#upload_img_icon').css('display', 'block');
                 //     $('#upload_img_text').css('display', 'block');
                 // }
+
             });
 
             $(document).on('click', '.remove-img', function (e) {
                 // e.stopPropagation();
                 // e.preventDefault();
 
-                let id = $(this).find('input[type=hidden]').val()
+                let id = $(this).find('input[type=hidden]').val();
+                let selected_image = $(this).find('input[type=hidden]').data('name');
+                console.log("id" , selected_image);
 
                 let input = $('#myFileInput')[0];
 
@@ -286,7 +290,8 @@
                 const dt = new DataTransfer()
 
                 for (let file of input.files)
-                    if (file !== input.files[0])
+                    // console.log("file bname" , file.name)
+                    if (file.name !== selected_image)
                         dt.items.add(file)
 
                 input.onchange = null // remove event listener
