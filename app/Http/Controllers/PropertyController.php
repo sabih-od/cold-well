@@ -41,10 +41,11 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         $input = $request->validate([
-            'property_name' => 'required',
+//            'property_name' => 'required',
+            'property_name' => 'required|regex:/^(?![\s.\'-])(?!.*[\s.\'-]{2})[A-Za-z\s.\'-]{2,}$/',
             'contact_email' => 'required|email',
             'contact_phone_number' => 'required',
-            'property_address' => 'required',
+            'property_address' => 'required|regex:/^(?![\s.\'-])(?!.*[\s.\'-]{2})[A-Za-z\s.\'-]{2,}$/',
             'zip_code' => 'required',
             'total_bedrooms' => 'required',
             'total_bathrooms' => 'required',
@@ -52,7 +53,7 @@ class PropertyController extends Controller
             'price' => 'required',
             'property_image' => 'required|array|max:6|min:1',
             'property_image.*' => 'image',
-            'property_description' => 'required',
+            'property_description' => 'required|regex:/^(?![\s.\'-])(?!.*[\s.\'-]{2})[A-Za-z\s.\'-]{2,}$/',
         ]);
 
         $property = new Property();

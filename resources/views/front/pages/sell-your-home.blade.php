@@ -147,7 +147,7 @@
 
 
                             <div class="col-md-12 mb-4">
-                                <label for="">Upload An Image *</label>
+                                <label for="">Upload An Images *</label>
                                 <div class="dropbox" id="imageContainer"
                                 >
                                     <div class="selected-image">
