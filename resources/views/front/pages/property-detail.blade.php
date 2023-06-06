@@ -715,6 +715,7 @@
 {{--                                <i class="fas fa-star"></i>--}}
 {{--                                <span>(1 review)</span>--}}
 {{--                            </div>--}}
+{{--                            @dd($property)--}}
                             <div>
                                 <a href="mailto:b.gordon@homeid.com">{{ $property->contact_email ?? '' }}</a>
                             </div>
@@ -733,7 +734,7 @@
                                 <input type="text" class="form-control" placeholder="Email Address *" name="email_address">
                                 <textarea class="form-control" placeholder="Message *" rows="10" name="message"></textarea>
                                 <button class="themeBtn w-100" type="submit">Send message</button>
-                                <a href="tel:{{$property->user->contact_phone_number ?? '' }}" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
+                                <a href="tel:{{$property->contact_phone_number ?? '' }}" class="themeBtn w-100 mt-3"><i class="fas fa-phone"></i>
                                     Call</a>
                             </form>
 

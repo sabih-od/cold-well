@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label for="">Email *</label>
-                                <input type="text" class="form-control @error('contact_email') is-invalid @enderror"
+                                <input type="email" class="form-control @error('contact_email') is-invalid @enderror"
                                        name="contact_email" value="{{ old('property_name') }}">
                                 @error('contact_email')
                                 <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label for="">Phone Number *</label>
-                                <input type="text"
+                                <input type="number"
                                        class="form-control @error('contact_phone_number') is-invalid @enderror"
                                        name="contact_phone_number" value="{{ old('property_name') }}">
                                 @error('contact_phone_number')
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label for="">Zip/Postal Code *</label>
-                                <input type="text" class="form-control @error('zip_code') is-invalid @enderror"
+                                <input type="number" class="form-control @error('zip_code') is-invalid @enderror"
                                        name="zip_code" value="{{ old('property_name') }}">
                                 @error('zip_code')
                                 <span class="invalid-feedback" role="alert">
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label for="">Sq. Ft *</label>
-                                <input type="text" class="form-control @error('total_sq_feet') is-invalid @enderror"
+                                <input type="number" class="form-control @error('total_sq_feet') is-invalid @enderror"
                                        name="total_sq_feet" value="{{ old('property_name') }}">
                                 @error('total_sq_feet')
                                 <span class="invalid-feedback" role="alert">
@@ -136,7 +136,7 @@
 
                             <div class="col-md-4 mb-4">
                                 <label for="">Price *</label>
-                                <input type="text" class="form-control @error('price') is-invalid @enderror"
+                                <input type="number" class="form-control @error('price') is-invalid @enderror"
                                        name="price" value="{{ old('property_name') }}">
                                 @error('price')
                                 <span class="invalid-feedback" role="alert">
