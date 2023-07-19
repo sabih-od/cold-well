@@ -21,8 +21,8 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h5 class="mb-3 font-weight-bold">Contact</h5>
-                            <a href="tel:(239) 945-1414">Office Phone: (239) 945-1414</a>
-                            <a href="tel:(239) 810-1010">Cell Phone: (239) 810-1010</a>
+                            <a href="tel:(239) 810 1010">Office Phone: (239) 810 1010</a>
+{{--                            <a href="tel:(239) 810-1010">Cell Phone: (239) 810-1010</a>--}}
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         <i class="far fa-envelope-open"></i>
                         <div>
                             <h5 class="mb-3 font-weight-bold">Email Us</h5>
-                            <a href="mailto:info@demo.com">info@demo.com</a>
+                            <a href="mailto:larrydeberry@ymail.com">larrydeberry@ymail.com</a>
                         </div>
                     </div>
                 </div>
@@ -57,25 +57,26 @@
                     <h2 class="heading">Get In Touch</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
                 </div>
-                <form action="" class="formContact">
+                <form action="{{ route('contactUsViaMail') }}" method="POST" class="formContact">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="text" class="form-control" name="email" placeholder="Your Email">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Your Phone">
+                            <input type="text" class="form-control" name="phone" placeholder="Your Phone">
                         </div>
                         <div class="col-md-12">
-                            <textarea name="" class="form-control" rows="6" placeholder="Message"></textarea>
+                            <textarea name="" class="form-control" rows="6" name="message" placeholder="Message"></textarea>
                         </div>
                         <div class="col-md-12">
-                            <button class="btn themeBtn">Submit</button>
+                            <button class="btn themeBtn" type="submit">Submit</button>
                         </div>
                     </div>
                 </form>

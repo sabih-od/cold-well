@@ -149,5 +149,21 @@ class PropertyController extends Controller
 
         return redirect()->back();
     }
+    public function contactUsViaMail(Request $request){
+
+        $data = $request->all();
+
+        $to = 'larrydeberry@ymail.com';
+        $from = $data['email'];
+        $subject = "Contact Submission";
+        $message = "Message Sender : " . $data['first_name'] . "</br>";
+        $message .= "Message Sender Number : " . $data['phone_number'] . "</br>";
+        $message .= "Message : " . $data['message'] . "</br>";
+
+        $this->customMail($from, $to, $subject, $message);
+
+        return redirect()->back()->with('success' , "Contact Form Submission Successfully");
+    }
+
 
 }

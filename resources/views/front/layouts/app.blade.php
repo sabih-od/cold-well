@@ -35,10 +35,10 @@
                 <div class="row">
                     <div class="col-md-9">
                         <ul class="nav-options">
-                            <li><a href="#"><i class="fa-solid fa-phone"></i> <span> (239) 945-1414</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-phone"></i> <span> (239) 810 1010</span></a></li>
                             <li><i class="fa-solid fa-location-dot"></i> <span> 1631 Del Prado Blvd S Unit 410 Cape Coral, FL 33990-6741</span>
                             </li>
-                            <li><a href="#"><i class="fa-solid fa-envelope"></i> <span> info@demo.com</span></a></li>
+                            <li><a href="#"><i class="fa-solid fa-envelope"></i> <span>larrydeberry@ymail.com</span></a></li>
                         </ul>
                     </div>
                     <div class="col">
@@ -127,9 +127,9 @@
             <div class="col-md-3 text-center p-0 contactinfo">
                 <a href="index.php" class="footerLogo"><img src="{{ asset('images/logo.png')}}" class="img-fluid" alt="img"></a>
                 <p class="address">1631 Del Prado Blvd Unit 410 Cape Coral, FL 33990-6741</p>
-                <a href="mailto:info@demo.com" class="email">info@demo.com</a>
-                <a href="tel:(239) 945-1414"><span>Office Phone: </span>(239) 945-1414</a>
-                <a href="tel:(239) 810-1010"><span>Cell Phone: </span>(239) 810-1010</a>
+                <a href="mailto:larrydeberry@ymail.com" class="email">larrydeberry@ymail.com</a>
+                <a href="tel:(239) 810 1010"><span>Cell Phone: </span>239 810 1010</a>
+{{--                <a href="tel:(239) 810-1010"><span>Cell Phone: </span>(239) 810-1010</a>--}}
             </div>
             <div class="col-md-2">
                 <div class="quickList">

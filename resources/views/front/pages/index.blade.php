@@ -77,7 +77,7 @@
                     <p>Whether you're a first-time home buyer in search of your dream home, a seller looking to downsize
                         or an investor looking for a great opportunity, working with a dedicated real estate
                         professional with over 30 years of experience can make all the difference.</p>
-                    <p>deliver unmatched customer service, and my genuine desire to see your property goals come true
+                    <p>Deliver unmatched customer service, and my genuine desire to see your property goals come true
                         makes me the go-to resource for all your real estate needs. For sellers, I take full advantage
                         of Coldwell Banker's® marketing tools to ensure that your property is broadly promoted on a
                         variety of channels, including major real estate websites, and my negotiation skills are second
@@ -110,7 +110,7 @@
                     <div class="col-md-3">
                         <a href="#" class="card">
                             <img src="images/1.png" alt="">
-                            <h5>Apartment</h5>
+                            <h5>Condos</h5>
                             <button class="btn btntheme"><span>3</span>Listed Properties <i
                                     class="fa-solid fa-angle-right"></i></button>
                         </a>
@@ -126,7 +126,7 @@
                     <div class="col-md-3">
                         <a href="#" class="card">
                             <img src="images/3.png" alt="">
-                            <h5>Villa</h5>
+                            <h5>Town Homes</h5>
                             <button class="btn btntheme"><span>3</span>Listed Properties <i
                                     class="fa-solid fa-angle-right"></i></button>
                         </a>
@@ -134,7 +134,7 @@
                     <div class="col-md-3">
                         <a href="#" class="card">
                             <img src="images/1.png" alt="">
-                            <h5>Luxury homes</h5>
+                            <h5>Luxury Homes</h5>
                             <button class="btn btntheme"><span>3</span>Listed Properties <i
                                     class="fa-solid fa-angle-right"></i></button>
                         </a>
@@ -479,7 +479,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="heading text-white">COMMUNITIES SERVED</h2>
+                    <h2 class="heading text-white">COMMUNITY SERVES</h2>
                 </div>
                 <div class="col-lg-2 text-right">
                     <a href="{{route('properties')}}" class="btn btn-outline-light px-4">See all properties</a>
