@@ -728,7 +728,8 @@
                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             </ul>
-                            <form action="{{route('propertyContactEmail')}}">
+                            <form action="{{route('propertyContactEmail')}}" method="POST">
+                                @csrf
                                 <input type="text" class="form-control" placeholder="Full Name *" name="full_name">
                                 <input type="text" class="form-control" placeholder="Phone Number *" name="phone_number">
                                 <input type="text" class="form-control" placeholder="Email Address *" name="email_address">

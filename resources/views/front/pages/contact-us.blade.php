@@ -70,10 +70,10 @@
                             <input type="text" class="form-control" name="email" placeholder="Your Email">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="phone" placeholder="Your Phone">
+                            <input type="text" class="form-control" name="phone_number" placeholder="Your Phone">
                         </div>
                         <div class="col-md-12">
-                            <textarea name="" class="form-control" rows="6" name="message" placeholder="Message"></textarea>
+                            <textarea  class="form-control" rows="6" name="message" placeholder="Message"></textarea>
                         </div>
                         <div class="col-md-12">
                             <button class="btn themeBtn" type="submit">Submit</button>
