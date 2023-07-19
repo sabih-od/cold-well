@@ -16,7 +16,7 @@
             <div class="col-md-6 my-auto pr-5">
                 <h2 class="heading mb-4">MEET LARRY DEBERRY</h2>
                 <p>Whether you're a first-time home buyer in search of your dream home, a seller looking to downsize or an investor looking for a great opportunity, working with a dedicated real estate professional with over 30 years of experience can make all the difference.</p>
-                <p>deliver unmatched customer service, and my genuine desire to see your property goals come true makes me the go-to resource for all your real estate needs. For sellers, I take full advantage of Coldwell Banker's® marketing tools to ensure that your property is broadly promoted on a variety of channels, including major real estate websites, and my negotiation skills are second to none. For buyers, I effectively analyze the local market and target trends to help you find the perfect home at the right price.</p>
+                <p>Deliver unmatched customer service, and my genuine desire to see your property goals come true makes me the go-to resource for all your real estate needs. For sellers, I take full advantage of Coldwell Banker's® marketing tools to ensure that your property is broadly promoted on a variety of channels, including major real estate websites, and my negotiation skills are second to none. For buyers, I effectively analyze the local market and target trends to help you find the perfect home at the right price.</p>
                 <p><strong><em>If you're looking for a positive, helpful partner who is ready to provide you with exceptional service, let's talk today!</em></strong></p>
             </div>
             <div class="col-md-6">

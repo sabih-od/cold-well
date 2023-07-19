@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2 class="heading text-white">COMMUNITIES SERVED</h2>
+                    <h2 class="heading text-white">COMMUNITY SERVES</h2>
                 </div>
                 <div class="col-lg-2 text-right">
                     <a href="#" class="btn btn-outline-light px-4">See all properties</a>
