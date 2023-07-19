@@ -152,7 +152,6 @@ class PropertyController extends Controller
     public function contactUsViaMail(Request $request){
 
         $data = $request->all();
-
         $to = 'larrydeberry@ymail.com';
         $from = $data['email'];
         $subject = "Contact Submission";

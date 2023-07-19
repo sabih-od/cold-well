@@ -45,8 +45,8 @@ Route::get('/privacy', [FrontController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [FrontController::class, 'terms'])->name('terms');
 Route::post('/sell-property', [PropertyController::class, 'store'])->name('sellProperty')->middleware('auth');
 Route::get('/property-detail/{id}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
-Route::get('/property-contact-email', [PropertyController::class, 'propertyContactEmail'])->name('propertyContactEmail');
-Route::get('/contact-us-via-mail', [PropertyController::class, 'contactUsViaMail'])->name('contactUsViaMail');
+Route::post('/property-contact-email', [PropertyController::class, 'propertyContactEmail'])->name('propertyContactEmail');
+Route::post('/contact-us-via-mail', [PropertyController::class, 'contactUsViaMail'])->name('contactUsViaMail');
 
 
 Route::get('/', [FrontController::class, 'home'])->name('home');
